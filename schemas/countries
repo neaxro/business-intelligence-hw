@@ -1,0 +1,5 @@
+name 	Full name of the country or territory.
+iso_code 	Unique two-letter ISO 3166-1 code for the country or territory.
+dafif_code 	FIPS country codes as used in DAFIF.Obsolete and primarily of historical interested.
+
+The data is UTF-8 encoded. The special value \N is used for "NULL" to indicate that no value is available, and is understood automatically by MySQL if imported.

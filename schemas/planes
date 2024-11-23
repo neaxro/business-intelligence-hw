@@ -1,0 +1,5 @@
+Name 	Full name of the aircraft.
+IATA code 	Unique three-letter IATA identifier for the aircraft.
+ICAO code 	Unique four-letter ICAO identifier for the aircraft.
+
+The data is UTF-8 encoded. The special value \N is used for "NULL" to indicate that no value is available, and is understood automatically by MySQL if imported.
