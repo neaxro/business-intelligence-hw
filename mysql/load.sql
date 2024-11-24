@@ -9,12 +9,12 @@ CREATE TABLE airlines (
     active CHAR(1)
 );
 
-LOAD DATA INFILE '/data/airlines.dat'
-INTO TABLE airlines
-FIELDS TERMINATED BY ','
-OPTIONALLY ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
+-- LOAD DATA INFILE '/data/airlines.dat'
+-- INTO TABLE airlines
+-- FIELDS TERMINATED BY ','
+-- OPTIONALLY ENCLOSED BY '"'
+-- LINES TERMINATED BY '\n'
+-- IGNORE 1 ROWS;
 
 CREATE TABLE airports (
     id INT PRIMARY KEY,
@@ -33,11 +33,11 @@ CREATE TABLE airports (
     source VARCHAR(50)
 );
 
-LOAD DATA INFILE '/data/airports.dat'
-INTO TABLE airports
-FIELDS TERMINATED BY ','
-OPTIONALLY ENCLOSED BY '"'
-LINES TERMINATED BY '\n';
+-- LOAD DATA INFILE '/data/airports.dat'
+-- INTO TABLE airports
+-- FIELDS TERMINATED BY ','
+-- OPTIONALLY ENCLOSED BY '"'
+-- LINES TERMINATED BY '\n';
 
 CREATE TABLE countries (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -46,12 +46,12 @@ CREATE TABLE countries (
     dafif_code CHAR(2) DEFAULT NULL
 );
 
-LOAD DATA INFILE '/data/countries.dat'
-INTO TABLE countries
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-(name, iso_code, dafif_code);
+-- LOAD DATA INFILE '/data/countries.dat'
+-- INTO TABLE countries
+-- FIELDS TERMINATED BY ','
+-- ENCLOSED BY '"'
+-- LINES TERMINATED BY '\n'
+-- (name, iso_code, dafif_code);
 
 CREATE TABLE planes (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -60,12 +60,12 @@ CREATE TABLE planes (
     icao_code CHAR(4) DEFAULT NULL
 );
 
-LOAD DATA INFILE '/data/planes.dat'
-INTO TABLE planes
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-(name, iata_code, icao_code);
+-- LOAD DATA INFILE '/data/planes.dat'
+-- INTO TABLE planes
+-- FIELDS TERMINATED BY ','
+-- ENCLOSED BY '"'
+-- LINES TERMINATED BY '\n'
+-- (name, iata_code, icao_code);
 
 CREATE TABLE routes (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -80,9 +80,9 @@ CREATE TABLE routes (
     equipment VARCHAR(255) DEFAULT NULL
 );
 
-LOAD DATA INFILE '/data/routes.dat'
-INTO TABLE routes
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-(airline, airline_id, source_airport, source_airport_id, destination_airport, destination_airport_id, codeshare, stops, equipment);
+-- LOAD DATA INFILE '/data/routes.dat'
+-- INTO TABLE routes
+-- FIELDS TERMINATED BY ','
+-- ENCLOSED BY '"'
+-- LINES TERMINATED BY '\n'
+-- (airline, airline_id, source_airport, source_airport_id, destination_airport, destination_airport_id, codeshare, stops, equipment);

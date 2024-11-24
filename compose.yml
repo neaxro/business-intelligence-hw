@@ -18,3 +18,28 @@ services:
       interval: 5s
       timeout: 60s
       retries: 5
+
+  # https://localhost:8443/nifi/login
+  nifi:
+    build:
+      context: nifi/
+      dockerfile: Dockerfile
+    environment:
+      SINGLE_USER_CREDENTIALS_USERNAME: admin
+      SINGLE_USER_CREDENTIALS_PASSWORD: pass123456789
+    volumes:
+      - ./nifi/raw_data:/raw_data:rw
+      # - ./nifi/drivers:/opt/nifi/nifi-current/lib
+    ports:
+      - 8443:8443
+
+  # nifi:
+  #   image: apache/nifi:1.28.1
+  #   environment:
+  #     SINGLE_USER_CREDENTIALS_USERNAME: admin
+  #     SINGLE_USER_CREDENTIALS_PASSWORD: pass123456789
+  #   volumes:
+  #     - ./nifi/raw_data:/raw_data:rw
+  #     # - ./nifi/drivers:/opt/nifi/nifi-current/lib
+  #   ports:
+  #     - 8443:8443
