@@ -60,7 +60,9 @@
                 "bulletinLevel": "WARN",
                 "runDurationMillis": 0,
                 "concurrentlySchedulableTaskCount": 1,
-                "autoTerminatedRelationships": [],
+                "autoTerminatedRelationships": [
+                    "failure"
+                ],
                 "scheduledState": "ENABLED",
                 "retryCount": 10,
                 "retriedRelationships": [],
@@ -139,7 +141,11 @@
                 "bulletinLevel": "WARN",
                 "runDurationMillis": 0,
                 "concurrentlySchedulableTaskCount": 1,
-                "autoTerminatedRelationships": [],
+                "autoTerminatedRelationships": [
+                    "failure",
+                    "permission.denied",
+                    "not.found"
+                ],
                 "scheduledState": "ENABLED",
                 "retryCount": 10,
                 "retriedRelationships": [],
@@ -155,7 +161,7 @@
                 "comments": "",
                 "position": {
                     "x": 232.0,
-                    "y": 32.0
+                    "y": 192.0
                 },
                 "type": "org.apache.nifi.processors.standard.RouteOnAttribute",
                 "bundle": {
@@ -212,8 +218,8 @@
                 "name": "LogAttribute",
                 "comments": "",
                 "position": {
-                    "x": -496.0,
-                    "y": -112.0
+                    "x": -440.0,
+                    "y": 800.0
                 },
                 "type": "org.apache.nifi.processors.standard.LogAttribute",
                 "bundle": {
@@ -321,8 +327,8 @@
                 "name": "QueryRecord",
                 "comments": "",
                 "position": {
-                    "x": 832.0,
-                    "y": 424.0
+                    "x": 688.0,
+                    "y": 512.0
                 },
                 "type": "org.apache.nifi.processors.standard.QueryRecord",
                 "bundle": {
@@ -407,7 +413,7 @@
             {
                 "identifier": "50eed8e4-931d-3679-8c59-69c7ec235fa9",
                 "instanceIdentifier": "5e5f4bd6-0193-1000-fe31-7d838429d504",
-                "name": "Attribut: tablename",
+                "name": "Add Attribute: tablename",
                 "comments": "",
                 "position": {
                     "x": 232.0,
@@ -476,8 +482,8 @@
                 "name": "Fix: callsign",
                 "comments": "",
                 "position": {
-                    "x": 912.0,
-                    "y": 240.0
+                    "x": 1424.0,
+                    "y": 216.0
                 },
                 "type": "org.apache.nifi.processors.script.ExecuteScript",
                 "bundle": {
@@ -556,8 +562,8 @@
                 "name": "Fix: iata",
                 "comments": "",
                 "position": {
-                    "x": 896.0,
-                    "y": 32.0
+                    "x": 1424.0,
+                    "y": -32.0
                 },
                 "type": "org.apache.nifi.processors.script.ExecuteScript",
                 "bundle": {
@@ -636,8 +642,8 @@
                 "name": "Insert airlines data",
                 "comments": "",
                 "position": {
-                    "x": 232.0,
-                    "y": 440.0
+                    "x": 216.0,
+                    "y": 808.0
                 },
                 "type": "org.apache.nifi.processors.standard.PutDatabaseRecord",
                 "bundle": {
@@ -1028,8 +1034,8 @@
                 "name": "Route: Airlines",
                 "comments": "",
                 "position": {
-                    "x": 232.0,
-                    "y": -304.0
+                    "x": 240.0,
+                    "y": -232.0
                 },
                 "type": "org.apache.nifi.processors.standard.RouteOnAttribute",
                 "bundle": {
@@ -1074,71 +1080,63 @@
                 "groupIdentifier": "e2167e7c-ae4e-34be-a336-4ef40195464c"
             },
             {
-                "identifier": "9e1f3b27-a825-34ec-a4ed-ce4eb58354ac",
-                "instanceIdentifier": "01931010-ee95-1e93-546a-1575e0cf9757",
-                "name": "Fix: Airlines",
+                "identifier": "9eaf2b3c-f04b-3108-8080-757b5a6cff8c",
+                "instanceIdentifier": "0193103e-ee95-1e93-ecf8-0755d2ecb6d4",
+                "name": "Fix: alias",
                 "comments": "",
                 "position": {
-                    "x": 888.0,
-                    "y": -376.0
+                    "x": 1424.0,
+                    "y": -264.0
                 },
-                "type": "org.apache.nifi.processors.standard.QueryRecord",
+                "type": "org.apache.nifi.processors.script.ExecuteScript",
                 "bundle": {
                     "group": "org.apache.nifi",
-                    "artifact": "nifi-standard-nar",
+                    "artifact": "nifi-scripting-nar",
                     "version": "1.28.1"
                 },
                 "properties": {
-                    "cache-schema": "true",
-                    "dbf-default-precision": "10",
-                    "record-writer": "1694f895-539d-331d-8dee-6ad5b87539dc",
-                    "record-reader": "47acd387-ef9f-32aa-b773-1eccfc818c8d",
-                    "include-zero-record-flowfiles": "true",
-                    "dbf-default-scale": "0",
-                    "good_alias": "SELECT id, name, \n       CASE \n           WHEN alias IS NULL THEN 'Default Alias' \n           ELSE alias \n       END AS alias,\n       iata,\n       country\nFROM FLOWFILE"
+                    "Script File": null,
+                    "Script Engine": "python",
+                    "Script Body": "import re\nfrom org.apache.nifi.processor.io import StreamCallback\nfrom org.apache.commons.io import IOUtils\nimport json\n\nclass ModifyFlowFile(StreamCallback):\n    def process(self, inputStream, outputStream):\n        # Read the input JSON\n        input_json = IOUtils.toString(inputStream, 'UTF-8')\n        data = json.loads(input_json)\n        \n        # Set alias for each record\n        for record in data:\n            if record.get(\"name\"):\n                # Lowercase and concatenate the words from the \"name\" field\n                name = record.get(\"name\", \"\")\n                record[\"alias\"] = \"\".join(re.findall(r'\\w+', name.lower()))\n        \n        # Write the updated JSON back\n        outputStream.write(json.dumps(data).encode('UTF-8'))\n\nflowFile = session.get()\nif flowFile is not None:\n    flowFile = session.write(flowFile, ModifyFlowFile())\n    session.transfer(flowFile, REL_SUCCESS)\n",
+                    "Module Directory": null
                 },
                 "propertyDescriptors": {
-                    "cache-schema": {
-                        "name": "cache-schema",
-                        "displayName": "Cache Schema",
+                    "Script File": {
+                        "name": "Script File",
+                        "displayName": "Script File",
+                        "identifiesControllerService": false,
+                        "sensitive": false,
+                        "resourceDefinition": {
+                            "cardinality": "SINGLE",
+                            "resourceTypes": [
+                                "FILE"
+                            ]
+                        }
+                    },
+                    "Script Engine": {
+                        "name": "Script Engine",
+                        "displayName": "Script Engine",
                         "identifiesControllerService": false,
                         "sensitive": false
                     },
-                    "dbf-default-precision": {
-                        "name": "dbf-default-precision",
-                        "displayName": "Default Decimal Precision",
+                    "Script Body": {
+                        "name": "Script Body",
+                        "displayName": "Script Body",
                         "identifiesControllerService": false,
                         "sensitive": false
                     },
-                    "record-writer": {
-                        "name": "record-writer",
-                        "displayName": "Record Writer",
-                        "identifiesControllerService": true,
-                        "sensitive": false
-                    },
-                    "record-reader": {
-                        "name": "record-reader",
-                        "displayName": "Record Reader",
-                        "identifiesControllerService": true,
-                        "sensitive": false
-                    },
-                    "include-zero-record-flowfiles": {
-                        "name": "include-zero-record-flowfiles",
-                        "displayName": "Include Zero Record FlowFiles",
+                    "Module Directory": {
+                        "name": "Module Directory",
+                        "displayName": "Module Directory",
                         "identifiesControllerService": false,
-                        "sensitive": false
-                    },
-                    "dbf-default-scale": {
-                        "name": "dbf-default-scale",
-                        "displayName": "Default Decimal Scale",
-                        "identifiesControllerService": false,
-                        "sensitive": false
-                    },
-                    "good_alias": {
-                        "name": "good_alias",
-                        "displayName": "good_alias",
-                        "identifiesControllerService": false,
-                        "sensitive": false
+                        "sensitive": false,
+                        "resourceDefinition": {
+                            "cardinality": "MULTIPLE",
+                            "resourceTypes": [
+                                "DIRECTORY",
+                                "FILE"
+                            ]
+                        }
                     }
                 },
                 "style": {},
@@ -1151,96 +1149,7 @@
                 "runDurationMillis": 0,
                 "concurrentlySchedulableTaskCount": 1,
                 "autoTerminatedRelationships": [
-                    "original",
                     "failure"
-                ],
-                "scheduledState": "ENABLED",
-                "retryCount": 10,
-                "retriedRelationships": [],
-                "backoffMechanism": "PENALIZE_FLOWFILE",
-                "maxBackoffPeriod": "10 mins",
-                "componentType": "PROCESSOR",
-                "groupIdentifier": "e2167e7c-ae4e-34be-a336-4ef40195464c"
-            },
-            {
-                "identifier": "189d0236-e4f8-399f-a961-575f768b27bc",
-                "instanceIdentifier": "0193101e-ee95-1e93-af83-fb7069229041",
-                "name": "Fix: Airlines",
-                "comments": "",
-                "position": {
-                    "x": 896.0,
-                    "y": -160.0
-                },
-                "type": "org.apache.nifi.processors.standard.QueryRecord",
-                "bundle": {
-                    "group": "org.apache.nifi",
-                    "artifact": "nifi-standard-nar",
-                    "version": "1.28.1"
-                },
-                "properties": {
-                    "cache-schema": "true",
-                    "dbf-default-precision": "10",
-                    "record-writer": "1694f895-539d-331d-8dee-6ad5b87539dc",
-                    "record-reader": "47acd387-ef9f-32aa-b773-1eccfc818c8d",
-                    "include-zero-record-flowfiles": "true",
-                    "dbf-default-scale": "0",
-                    "empty_iata": "SELECT * FROM FLOWFILE WHERE iata IS NULL OR iata = '' OR iata = '-'"
-                },
-                "propertyDescriptors": {
-                    "cache-schema": {
-                        "name": "cache-schema",
-                        "displayName": "Cache Schema",
-                        "identifiesControllerService": false,
-                        "sensitive": false
-                    },
-                    "dbf-default-precision": {
-                        "name": "dbf-default-precision",
-                        "displayName": "Default Decimal Precision",
-                        "identifiesControllerService": false,
-                        "sensitive": false
-                    },
-                    "record-writer": {
-                        "name": "record-writer",
-                        "displayName": "Record Writer",
-                        "identifiesControllerService": true,
-                        "sensitive": false
-                    },
-                    "record-reader": {
-                        "name": "record-reader",
-                        "displayName": "Record Reader",
-                        "identifiesControllerService": true,
-                        "sensitive": false
-                    },
-                    "include-zero-record-flowfiles": {
-                        "name": "include-zero-record-flowfiles",
-                        "displayName": "Include Zero Record FlowFiles",
-                        "identifiesControllerService": false,
-                        "sensitive": false
-                    },
-                    "dbf-default-scale": {
-                        "name": "dbf-default-scale",
-                        "displayName": "Default Decimal Scale",
-                        "identifiesControllerService": false,
-                        "sensitive": false
-                    },
-                    "empty_iata": {
-                        "name": "empty_iata",
-                        "displayName": "empty_iata",
-                        "identifiesControllerService": false,
-                        "sensitive": false
-                    }
-                },
-                "style": {},
-                "schedulingPeriod": "0 sec",
-                "schedulingStrategy": "TIMER_DRIVEN",
-                "executionNode": "ALL",
-                "penaltyDuration": "30 sec",
-                "yieldDuration": "1 sec",
-                "bulletinLevel": "WARN",
-                "runDurationMillis": 0,
-                "concurrentlySchedulableTaskCount": 1,
-                "autoTerminatedRelationships": [
-                    "original"
                 ],
                 "scheduledState": "ENABLED",
                 "retryCount": 10,
@@ -1327,65 +1236,29 @@
                 "groupIdentifier": "e2167e7c-ae4e-34be-a336-4ef40195464c"
             },
             {
-                "identifier": "a3ec43cf-5a1c-3a57-991e-4e2893536451",
-                "instanceIdentifier": "01931011-ee95-1e93-7b3f-62f3e5ccbcbd",
+                "identifier": "246b2021-3add-3f02-a781-35b914005282",
+                "instanceIdentifier": "01931040-ee95-1e93-2f73-89204a6993c8",
                 "name": "",
                 "source": {
-                    "id": "c45aa4ad-32ed-3156-b27b-1e33c82ac38d",
+                    "id": "9eaf2b3c-f04b-3108-8080-757b5a6cff8c",
                     "type": "PROCESSOR",
                     "groupId": "e2167e7c-ae4e-34be-a336-4ef40195464c",
-                    "name": "Route: Airlines",
+                    "name": "Fix: alias",
                     "comments": "",
-                    "instanceIdentifier": "01931000-ee95-1e93-685c-50dfe661bcab"
+                    "instanceIdentifier": "0193103e-ee95-1e93-ecf8-0755d2ecb6d4"
                 },
                 "destination": {
-                    "id": "9e1f3b27-a825-34ec-a4ed-ce4eb58354ac",
+                    "id": "fd18f267-d27b-3bd0-a615-a2d2319b018c",
                     "type": "PROCESSOR",
                     "groupId": "e2167e7c-ae4e-34be-a336-4ef40195464c",
-                    "name": "Fix: Airlines",
+                    "name": "Fix: iata",
                     "comments": "",
-                    "instanceIdentifier": "01931010-ee95-1e93-546a-1575e0cf9757"
+                    "instanceIdentifier": "01931023-ee95-1e93-be15-a2fbbce005ec"
                 },
                 "labelIndex": 1,
                 "zIndex": 0,
                 "selectedRelationships": [
-                    "matched"
-                ],
-                "backPressureObjectThreshold": 10000,
-                "backPressureDataSizeThreshold": "1 GB",
-                "flowFileExpiration": "0 sec",
-                "prioritizers": [],
-                "bends": [],
-                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
-                "partitioningAttribute": "",
-                "loadBalanceCompression": "DO_NOT_COMPRESS",
-                "componentType": "CONNECTION",
-                "groupIdentifier": "e2167e7c-ae4e-34be-a336-4ef40195464c"
-            },
-            {
-                "identifier": "bebe4171-be85-3578-9b44-0fc7035833fc",
-                "instanceIdentifier": "0193101f-ee95-1e93-535a-58a19fbc34ac",
-                "name": "",
-                "source": {
-                    "id": "9e1f3b27-a825-34ec-a4ed-ce4eb58354ac",
-                    "type": "PROCESSOR",
-                    "groupId": "e2167e7c-ae4e-34be-a336-4ef40195464c",
-                    "name": "Fix: Airlines",
-                    "comments": "",
-                    "instanceIdentifier": "01931010-ee95-1e93-546a-1575e0cf9757"
-                },
-                "destination": {
-                    "id": "189d0236-e4f8-399f-a961-575f768b27bc",
-                    "type": "PROCESSOR",
-                    "groupId": "e2167e7c-ae4e-34be-a336-4ef40195464c",
-                    "name": "Fix: Airlines",
-                    "comments": "",
-                    "instanceIdentifier": "0193101e-ee95-1e93-af83-fb7069229041"
-                },
-                "labelIndex": 1,
-                "zIndex": 0,
-                "selectedRelationships": [
-                    "good_alias"
+                    "success"
                 ],
                 "backPressureObjectThreshold": 10000,
                 "backPressureDataSizeThreshold": "1 GB",
@@ -1450,7 +1323,7 @@
                     "id": "50eed8e4-931d-3679-8c59-69c7ec235fa9",
                     "type": "PROCESSOR",
                     "groupId": "e2167e7c-ae4e-34be-a336-4ef40195464c",
-                    "name": "Attribut: tablename",
+                    "name": "Add Attribute: tablename",
                     "comments": "",
                     "instanceIdentifier": "5e5f4bd6-0193-1000-fe31-7d838429d504"
                 },
@@ -1458,42 +1331,6 @@
                 "zIndex": 0,
                 "selectedRelationships": [
                     "success"
-                ],
-                "backPressureObjectThreshold": 10000,
-                "backPressureDataSizeThreshold": "1 GB",
-                "flowFileExpiration": "0 sec",
-                "prioritizers": [],
-                "bends": [],
-                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
-                "partitioningAttribute": "",
-                "loadBalanceCompression": "DO_NOT_COMPRESS",
-                "componentType": "CONNECTION",
-                "groupIdentifier": "e2167e7c-ae4e-34be-a336-4ef40195464c"
-            },
-            {
-                "identifier": "95e6b55d-d9f3-370f-8b2f-2b04097d147b",
-                "instanceIdentifier": "5e4b7dc8-0193-1000-bd4b-540372ef8464",
-                "name": "",
-                "source": {
-                    "id": "2adc92dc-5ca4-348b-afca-495f0f8e0bd6",
-                    "type": "PROCESSOR",
-                    "groupId": "e2167e7c-ae4e-34be-a336-4ef40195464c",
-                    "name": "Convert: CSV -> JSON tree",
-                    "comments": "",
-                    "instanceIdentifier": "5e2c50ec-0193-1000-58c5-e4a52a27610d"
-                },
-                "destination": {
-                    "id": "ca3309b3-6d38-3059-873a-999dd20ceded",
-                    "type": "PROCESSOR",
-                    "groupId": "e2167e7c-ae4e-34be-a336-4ef40195464c",
-                    "name": "LogAttribute",
-                    "comments": "",
-                    "instanceIdentifier": "5da589db-0193-1000-1379-c16cb3085c7f"
-                },
-                "labelIndex": 1,
-                "zIndex": 0,
-                "selectedRelationships": [
-                    "failure"
                 ],
                 "backPressureObjectThreshold": 10000,
                 "backPressureDataSizeThreshold": "1 GB",
@@ -1543,31 +1380,29 @@
                 "groupIdentifier": "e2167e7c-ae4e-34be-a336-4ef40195464c"
             },
             {
-                "identifier": "4e40ce12-3bce-36d3-86f2-87fe90fcf170",
-                "instanceIdentifier": "5e4b90b2-0193-1000-5767-5862e0b6d39d",
+                "identifier": "bee784f2-b171-32da-bd3f-36e63aa629e8",
+                "instanceIdentifier": "0193103f-ee95-1e93-d580-8795ad81ba2c",
                 "name": "",
                 "source": {
-                    "id": "9fa795cf-cb88-36e8-895a-5663f03cdddc",
+                    "id": "c45aa4ad-32ed-3156-b27b-1e33c82ac38d",
                     "type": "PROCESSOR",
                     "groupId": "e2167e7c-ae4e-34be-a336-4ef40195464c",
-                    "name": "Fetch airlines.dat file content",
+                    "name": "Route: Airlines",
                     "comments": "",
-                    "instanceIdentifier": "5db498aa-0193-1000-78de-795fcf99105f"
+                    "instanceIdentifier": "01931000-ee95-1e93-685c-50dfe661bcab"
                 },
                 "destination": {
-                    "id": "ca3309b3-6d38-3059-873a-999dd20ceded",
+                    "id": "9eaf2b3c-f04b-3108-8080-757b5a6cff8c",
                     "type": "PROCESSOR",
                     "groupId": "e2167e7c-ae4e-34be-a336-4ef40195464c",
-                    "name": "LogAttribute",
+                    "name": "Fix: alias",
                     "comments": "",
-                    "instanceIdentifier": "5da589db-0193-1000-1379-c16cb3085c7f"
+                    "instanceIdentifier": "0193103e-ee95-1e93-ecf8-0755d2ecb6d4"
                 },
                 "labelIndex": 1,
                 "zIndex": 0,
                 "selectedRelationships": [
-                    "failure",
-                    "permission.denied",
-                    "not.found"
+                    "matched"
                 ],
                 "backPressureObjectThreshold": 10000,
                 "backPressureDataSizeThreshold": "1 GB",
@@ -1604,42 +1439,6 @@
                 "zIndex": 0,
                 "selectedRelationships": [
                     "unmatched"
-                ],
-                "backPressureObjectThreshold": 10000,
-                "backPressureDataSizeThreshold": "1 GB",
-                "flowFileExpiration": "0 sec",
-                "prioritizers": [],
-                "bends": [],
-                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
-                "partitioningAttribute": "",
-                "loadBalanceCompression": "DO_NOT_COMPRESS",
-                "componentType": "CONNECTION",
-                "groupIdentifier": "e2167e7c-ae4e-34be-a336-4ef40195464c"
-            },
-            {
-                "identifier": "dba46618-6823-36bb-b9e3-604ac8d271b0",
-                "instanceIdentifier": "01931020-ee95-1e93-3535-5922d45f69a6",
-                "name": "",
-                "source": {
-                    "id": "189d0236-e4f8-399f-a961-575f768b27bc",
-                    "type": "PROCESSOR",
-                    "groupId": "e2167e7c-ae4e-34be-a336-4ef40195464c",
-                    "name": "Fix: Airlines",
-                    "comments": "",
-                    "instanceIdentifier": "0193101e-ee95-1e93-af83-fb7069229041"
-                },
-                "destination": {
-                    "id": "57a8f76a-86d8-3c0f-9a1a-2e031fbdbc11",
-                    "type": "PROCESSOR",
-                    "groupId": "e2167e7c-ae4e-34be-a336-4ef40195464c",
-                    "name": "RouteOnAttribute",
-                    "comments": "",
-                    "instanceIdentifier": "5e93ee95-0193-1000-6c79-7f23b45f2cd1"
-                },
-                "labelIndex": 1,
-                "zIndex": 0,
-                "selectedRelationships": [
-                    "failure"
                 ],
                 "backPressureObjectThreshold": 10000,
                 "backPressureDataSizeThreshold": "1 GB",
@@ -1696,7 +1495,7 @@
                     "id": "50eed8e4-931d-3679-8c59-69c7ec235fa9",
                     "type": "PROCESSOR",
                     "groupId": "e2167e7c-ae4e-34be-a336-4ef40195464c",
-                    "name": "Attribut: tablename",
+                    "name": "Add Attribute: tablename",
                     "comments": "",
                     "instanceIdentifier": "5e5f4bd6-0193-1000-fe31-7d838429d504"
                 },
@@ -1712,42 +1511,6 @@
                 "zIndex": 0,
                 "selectedRelationships": [
                     "success"
-                ],
-                "backPressureObjectThreshold": 10000,
-                "backPressureDataSizeThreshold": "1 GB",
-                "flowFileExpiration": "0 sec",
-                "prioritizers": [],
-                "bends": [],
-                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
-                "partitioningAttribute": "",
-                "loadBalanceCompression": "DO_NOT_COMPRESS",
-                "componentType": "CONNECTION",
-                "groupIdentifier": "e2167e7c-ae4e-34be-a336-4ef40195464c"
-            },
-            {
-                "identifier": "d3a0ff07-ee40-313a-9e47-90630ba766bc",
-                "instanceIdentifier": "01931025-ee95-1e93-b3d7-5e9f205d5dac",
-                "name": "",
-                "source": {
-                    "id": "189d0236-e4f8-399f-a961-575f768b27bc",
-                    "type": "PROCESSOR",
-                    "groupId": "e2167e7c-ae4e-34be-a336-4ef40195464c",
-                    "name": "Fix: Airlines",
-                    "comments": "",
-                    "instanceIdentifier": "0193101e-ee95-1e93-af83-fb7069229041"
-                },
-                "destination": {
-                    "id": "fd18f267-d27b-3bd0-a615-a2d2319b018c",
-                    "type": "PROCESSOR",
-                    "groupId": "e2167e7c-ae4e-34be-a336-4ef40195464c",
-                    "name": "Fix: iata",
-                    "comments": "",
-                    "instanceIdentifier": "01931023-ee95-1e93-be15-a2fbbce005ec"
-                },
-                "labelIndex": 1,
-                "zIndex": 0,
-                "selectedRelationships": [
-                    "empty_iata"
                 ],
                 "backPressureObjectThreshold": 10000,
                 "backPressureDataSizeThreshold": "1 GB",
