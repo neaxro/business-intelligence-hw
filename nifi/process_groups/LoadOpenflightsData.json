@@ -160,8 +160,8 @@
                 "name": "RouteOnAttribute",
                 "comments": "",
                 "position": {
-                    "x": 232.0,
-                    "y": 192.0
+                    "x": 248.0,
+                    "y": 640.0
                 },
                 "type": "org.apache.nifi.processors.standard.RouteOnAttribute",
                 "bundle": {
@@ -213,13 +213,214 @@
                 "groupIdentifier": "e2167e7c-ae4e-34be-a336-4ef40195464c"
             },
             {
+                "identifier": "1be783b6-6282-3ad1-996a-ddde1f164d55",
+                "instanceIdentifier": "0193105c-ee95-1e93-4406-1722718d9692",
+                "name": "Insert: airport (longitude, latitude)",
+                "comments": "",
+                "position": {
+                    "x": 536.0,
+                    "y": 1384.0
+                },
+                "type": "org.apache.nifi.processors.standard.PutDatabaseRecord",
+                "bundle": {
+                    "group": "org.apache.nifi",
+                    "artifact": "nifi-standard-nar",
+                    "version": "1.28.1"
+                },
+                "properties": {
+                    "put-db-record-allow-multiple-statements": "false",
+                    "table-schema-cache-size": "100",
+                    "put-db-record-schema-name": null,
+                    "put-db-record-field-containing-sql": null,
+                    "put-db-record-quoted-table-identifiers": "false",
+                    "Statement Type Record Path": null,
+                    "put-db-record-unmatched-column-behavior": "Fail on Unmatched Columns",
+                    "put-db-record-catalog-name": null,
+                    "put-db-record-translate-field-names": "true",
+                    "put-db-record-dcbp-service": "b9f2d7d3-8438-3bfc-a7ca-24569c5dd675",
+                    "put-db-record-query-timeout": "10 seconds",
+                    "rollback-on-failure": "false",
+                    "put-db-record-statement-type": "INSERT",
+                    "put-db-record-binary-format": "UTF-8",
+                    "db-type": "MySQL",
+                    "put-db-record-update-keys": null,
+                    "put-db-record-quoted-identifiers": "false",
+                    "put-db-record-table-name": "${tablename}",
+                    "put-db-record-unmatched-field-behavior": "Ignore Unmatched Fields",
+                    "put-db-record-max-batch-size": "1000",
+                    "put-db-record-record-reader": "472ac4d3-677e-3f07-82c2-5d3e166168cd",
+                    "Data Record Path": null,
+                    "database-session-autocommit": "false"
+                },
+                "propertyDescriptors": {
+                    "put-db-record-allow-multiple-statements": {
+                        "name": "put-db-record-allow-multiple-statements",
+                        "displayName": "Allow Multiple SQL Statements",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "table-schema-cache-size": {
+                        "name": "table-schema-cache-size",
+                        "displayName": "Table Schema Cache Size",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "put-db-record-schema-name": {
+                        "name": "put-db-record-schema-name",
+                        "displayName": "Schema Name",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "put-db-record-field-containing-sql": {
+                        "name": "put-db-record-field-containing-sql",
+                        "displayName": "Field Containing SQL",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "put-db-record-quoted-table-identifiers": {
+                        "name": "put-db-record-quoted-table-identifiers",
+                        "displayName": "Quote Table Identifiers",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Statement Type Record Path": {
+                        "name": "Statement Type Record Path",
+                        "displayName": "Statement Type Record Path",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "put-db-record-unmatched-column-behavior": {
+                        "name": "put-db-record-unmatched-column-behavior",
+                        "displayName": "Unmatched Column Behavior",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "put-db-record-catalog-name": {
+                        "name": "put-db-record-catalog-name",
+                        "displayName": "Catalog Name",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "put-db-record-translate-field-names": {
+                        "name": "put-db-record-translate-field-names",
+                        "displayName": "Translate Field Names",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "put-db-record-dcbp-service": {
+                        "name": "put-db-record-dcbp-service",
+                        "displayName": "Database Connection Pooling Service",
+                        "identifiesControllerService": true,
+                        "sensitive": false
+                    },
+                    "put-db-record-query-timeout": {
+                        "name": "put-db-record-query-timeout",
+                        "displayName": "Max Wait Time",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "rollback-on-failure": {
+                        "name": "rollback-on-failure",
+                        "displayName": "Rollback On Failure",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "put-db-record-statement-type": {
+                        "name": "put-db-record-statement-type",
+                        "displayName": "Statement Type",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "put-db-record-binary-format": {
+                        "name": "put-db-record-binary-format",
+                        "displayName": "Binary String Format",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "db-type": {
+                        "name": "db-type",
+                        "displayName": "Database Type",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "put-db-record-update-keys": {
+                        "name": "put-db-record-update-keys",
+                        "displayName": "Update Keys",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "put-db-record-quoted-identifiers": {
+                        "name": "put-db-record-quoted-identifiers",
+                        "displayName": "Quote Column Identifiers",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "put-db-record-table-name": {
+                        "name": "put-db-record-table-name",
+                        "displayName": "Table Name",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "put-db-record-unmatched-field-behavior": {
+                        "name": "put-db-record-unmatched-field-behavior",
+                        "displayName": "Unmatched Field Behavior",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "put-db-record-max-batch-size": {
+                        "name": "put-db-record-max-batch-size",
+                        "displayName": "Maximum Batch Size",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "put-db-record-record-reader": {
+                        "name": "put-db-record-record-reader",
+                        "displayName": "Record Reader",
+                        "identifiesControllerService": true,
+                        "sensitive": false
+                    },
+                    "Data Record Path": {
+                        "name": "Data Record Path",
+                        "displayName": "Data Record Path",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "database-session-autocommit": {
+                        "name": "database-session-autocommit",
+                        "displayName": "Database Session AutoCommit",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "ERROR",
+                "runDurationMillis": 0,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [
+                    "success",
+                    "retry"
+                ],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "e2167e7c-ae4e-34be-a336-4ef40195464c"
+            },
+            {
                 "identifier": "ca3309b3-6d38-3059-873a-999dd20ceded",
                 "instanceIdentifier": "5da589db-0193-1000-1379-c16cb3085c7f",
                 "name": "LogAttribute",
                 "comments": "",
                 "position": {
-                    "x": -440.0,
-                    "y": 800.0
+                    "x": 184.0,
+                    "y": 1712.0
                 },
                 "type": "org.apache.nifi.processors.standard.LogAttribute",
                 "bundle": {
@@ -327,8 +528,8 @@
                 "name": "QueryRecord",
                 "comments": "",
                 "position": {
-                    "x": 688.0,
-                    "y": 512.0
+                    "x": 536.0,
+                    "y": 904.0
                 },
                 "type": "org.apache.nifi.processors.standard.QueryRecord",
                 "bundle": {
@@ -482,8 +683,8 @@
                 "name": "Fix: callsign",
                 "comments": "",
                 "position": {
-                    "x": 1424.0,
-                    "y": 216.0
+                    "x": 856.0,
+                    "y": 440.0
                 },
                 "type": "org.apache.nifi.processors.script.ExecuteScript",
                 "bundle": {
@@ -562,8 +763,8 @@
                 "name": "Fix: iata",
                 "comments": "",
                 "position": {
-                    "x": 1424.0,
-                    "y": -32.0
+                    "x": 864.0,
+                    "y": 192.0
                 },
                 "type": "org.apache.nifi.processors.script.ExecuteScript",
                 "bundle": {
@@ -639,11 +840,11 @@
             {
                 "identifier": "9277f3b7-3776-3a9b-af1a-a1a83cd5aee7",
                 "instanceIdentifier": "c161df51-1e84-3f0f-533d-87c5aa96d6fd",
-                "name": "Insert airlines data",
+                "name": "Insert: data",
                 "comments": "",
                 "position": {
-                    "x": 216.0,
-                    "y": 808.0
+                    "x": -160.0,
+                    "y": 1376.0
                 },
                 "type": "org.apache.nifi.processors.standard.PutDatabaseRecord",
                 "bundle": {
@@ -1085,8 +1286,8 @@
                 "name": "Fix: alias",
                 "comments": "",
                 "position": {
-                    "x": 1424.0,
-                    "y": -264.0
+                    "x": 864.0,
+                    "y": -40.0
                 },
                 "type": "org.apache.nifi.processors.script.ExecuteScript",
                 "bundle": {
@@ -1158,14 +1359,65 @@
                 "maxBackoffPeriod": "10 mins",
                 "componentType": "PROCESSOR",
                 "groupIdentifier": "e2167e7c-ae4e-34be-a336-4ef40195464c"
+            },
+            {
+                "identifier": "a3bac6f1-72a9-32f4-b982-ad96075c1262",
+                "instanceIdentifier": "01931058-ee95-1e93-9fdc-9b478b222e0b",
+                "name": "RouteOnAttribute",
+                "comments": "",
+                "position": {
+                    "x": 536.0,
+                    "y": 1144.0
+                },
+                "type": "org.apache.nifi.processors.standard.RouteOnAttribute",
+                "bundle": {
+                    "group": "org.apache.nifi",
+                    "artifact": "nifi-standard-nar",
+                    "version": "1.28.1"
+                },
+                "properties": {
+                    "Routing Strategy": "Route to 'match' if any matches",
+                    "airports": "${tablename:equals('airports')}"
+                },
+                "propertyDescriptors": {
+                    "Routing Strategy": {
+                        "name": "Routing Strategy",
+                        "displayName": "Routing Strategy",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "airports": {
+                        "name": "airports",
+                        "displayName": "airports",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 25,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "e2167e7c-ae4e-34be-a336-4ef40195464c"
             }
         ],
         "inputPorts": [],
         "outputPorts": [],
         "connections": [
             {
-                "identifier": "fe8384df-14c0-3472-acb2-559c20adb196",
-                "instanceIdentifier": "5e8e2f4e-0193-1000-7910-ee28830b98a1",
+                "identifier": "d5e0cb8e-6099-3e70-af43-f67b1103c0b6",
+                "instanceIdentifier": "01931059-ee95-1e93-3e91-ee205d9772ac",
                 "name": "",
                 "source": {
                     "id": "8614aaa7-991b-36ce-a4b8-583c873edf21",
@@ -1176,12 +1428,12 @@
                     "instanceIdentifier": "5e7dca20-0193-1000-3c31-9f92dc067f22"
                 },
                 "destination": {
-                    "id": "9277f3b7-3776-3a9b-af1a-a1a83cd5aee7",
+                    "id": "a3bac6f1-72a9-32f4-b982-ad96075c1262",
                     "type": "PROCESSOR",
                     "groupId": "e2167e7c-ae4e-34be-a336-4ef40195464c",
-                    "name": "Insert airlines data",
+                    "name": "RouteOnAttribute",
                     "comments": "",
-                    "instanceIdentifier": "c161df51-1e84-3f0f-533d-87c5aa96d6fd"
+                    "instanceIdentifier": "01931058-ee95-1e93-9fdc-9b478b222e0b"
                 },
                 "labelIndex": 1,
                 "zIndex": 0,
@@ -1272,6 +1524,42 @@
                 "groupIdentifier": "e2167e7c-ae4e-34be-a336-4ef40195464c"
             },
             {
+                "identifier": "6e62574d-1cd4-3cdd-912b-8219991b519b",
+                "instanceIdentifier": "0193105d-ee95-1e93-7a39-e3d43e93dc3f",
+                "name": "",
+                "source": {
+                    "id": "a3bac6f1-72a9-32f4-b982-ad96075c1262",
+                    "type": "PROCESSOR",
+                    "groupId": "e2167e7c-ae4e-34be-a336-4ef40195464c",
+                    "name": "RouteOnAttribute",
+                    "comments": "",
+                    "instanceIdentifier": "01931058-ee95-1e93-9fdc-9b478b222e0b"
+                },
+                "destination": {
+                    "id": "1be783b6-6282-3ad1-996a-ddde1f164d55",
+                    "type": "PROCESSOR",
+                    "groupId": "e2167e7c-ae4e-34be-a336-4ef40195464c",
+                    "name": "Insert: airport (longitude, latitude)",
+                    "comments": "",
+                    "instanceIdentifier": "0193105c-ee95-1e93-4406-1722718d9692"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                    "matched"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "e2167e7c-ae4e-34be-a336-4ef40195464c"
+            },
+            {
                 "identifier": "a3288246-be74-3238-8168-3a862d34433d",
                 "instanceIdentifier": "5e96f90f-0193-1000-1f03-14d9c565f026",
                 "name": "",
@@ -1331,6 +1619,42 @@
                 "zIndex": 0,
                 "selectedRelationships": [
                     "success"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "e2167e7c-ae4e-34be-a336-4ef40195464c"
+            },
+            {
+                "identifier": "7697adff-18fb-3e30-93b8-cf963fcfe74d",
+                "instanceIdentifier": "0193105e-ee95-1e93-12e2-0e2997fb6ec7",
+                "name": "",
+                "source": {
+                    "id": "1be783b6-6282-3ad1-996a-ddde1f164d55",
+                    "type": "PROCESSOR",
+                    "groupId": "e2167e7c-ae4e-34be-a336-4ef40195464c",
+                    "name": "Insert: airport (longitude, latitude)",
+                    "comments": "",
+                    "instanceIdentifier": "0193105c-ee95-1e93-4406-1722718d9692"
+                },
+                "destination": {
+                    "id": "ca3309b3-6d38-3059-873a-999dd20ceded",
+                    "type": "PROCESSOR",
+                    "groupId": "e2167e7c-ae4e-34be-a336-4ef40195464c",
+                    "name": "LogAttribute",
+                    "comments": "",
+                    "instanceIdentifier": "5da589db-0193-1000-1379-c16cb3085c7f"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                    "failure"
                 ],
                 "backPressureObjectThreshold": 10000,
                 "backPressureDataSizeThreshold": "1 GB",
@@ -1416,6 +1740,42 @@
                 "groupIdentifier": "e2167e7c-ae4e-34be-a336-4ef40195464c"
             },
             {
+                "identifier": "77834c01-6048-329b-9dd9-6674fe5ea592",
+                "instanceIdentifier": "0193105a-ee95-1e93-4b27-43bd573f4029",
+                "name": "",
+                "source": {
+                    "id": "a3bac6f1-72a9-32f4-b982-ad96075c1262",
+                    "type": "PROCESSOR",
+                    "groupId": "e2167e7c-ae4e-34be-a336-4ef40195464c",
+                    "name": "RouteOnAttribute",
+                    "comments": "",
+                    "instanceIdentifier": "01931058-ee95-1e93-9fdc-9b478b222e0b"
+                },
+                "destination": {
+                    "id": "9277f3b7-3776-3a9b-af1a-a1a83cd5aee7",
+                    "type": "PROCESSOR",
+                    "groupId": "e2167e7c-ae4e-34be-a336-4ef40195464c",
+                    "name": "Insert: data",
+                    "comments": "",
+                    "instanceIdentifier": "c161df51-1e84-3f0f-533d-87c5aa96d6fd"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                    "unmatched"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "e2167e7c-ae4e-34be-a336-4ef40195464c"
+            },
+            {
                 "identifier": "ea3d0b3e-625f-37fe-b7db-8bc799ae8e49",
                 "instanceIdentifier": "5e970ae6-0193-1000-2ce4-dd6c5855b878",
                 "name": "",
@@ -1431,7 +1791,7 @@
                     "id": "9277f3b7-3776-3a9b-af1a-a1a83cd5aee7",
                     "type": "PROCESSOR",
                     "groupId": "e2167e7c-ae4e-34be-a336-4ef40195464c",
-                    "name": "Insert airlines data",
+                    "name": "Insert: data",
                     "comments": "",
                     "instanceIdentifier": "c161df51-1e84-3f0f-533d-87c5aa96d6fd"
                 },
@@ -1459,7 +1819,7 @@
                     "id": "9277f3b7-3776-3a9b-af1a-a1a83cd5aee7",
                     "type": "PROCESSOR",
                     "groupId": "e2167e7c-ae4e-34be-a336-4ef40195464c",
-                    "name": "Insert airlines data",
+                    "name": "Insert: data",
                     "comments": "",
                     "instanceIdentifier": "c161df51-1e84-3f0f-533d-87c5aa96d6fd"
                 },
@@ -2122,7 +2482,7 @@
                     "schema-access-strategy": "csv-header-derived",
                     "schema-version": null,
                     "csvutils-character-set": "UTF-8",
-                    "schema-text": "${avro.schema}"
+                    "schema-text": "{\n  \"type\": \"record\",\n  \"name\": \"Airport\",\n  \"fields\": [\n    { \"name\": \"id\", \"type\": \"int\" },\n    { \"name\": \"name\", \"type\": \"string\" },\n    { \"name\": \"city\", \"type\": \"string\" },\n    { \"name\": \"country\", \"type\": \"string\" },\n    { \"name\": \"iata\", \"type\": [\"null\", \"string\"], \"default\": null },\n    { \"name\": \"icao\", \"type\": [\"null\", \"string\"], \"default\": null },\n    { \"name\": \"latitude\", \"type\": \"double\" },\n    { \"name\": \"longitude\", \"type\": \"double\" },\n    { \"name\": \"altitude\", \"type\": \"int\" },\n    { \"name\": \"timezone\", \"type\": \"double\" },\n    { \"name\": \"dst\", \"type\": \"string\" },\n    { \"name\": \"tz_database_timezone\", \"type\": \"string\" },\n    { \"name\": \"type\", \"type\": \"string\" },\n    { \"name\": \"source\", \"type\": \"string\" }\n  ]\n}\n"
                 },
                 "propertyDescriptors": {
                     "ignore-csv-header": {
@@ -2260,6 +2620,141 @@
                     "schema-text": {
                         "name": "schema-text",
                         "displayName": "Schema Text",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    }
+                },
+                "controllerServiceApis": [
+                    {
+                        "type": "org.apache.nifi.serialization.RecordReaderFactory",
+                        "bundle": {
+                            "group": "org.apache.nifi",
+                            "artifact": "nifi-standard-services-api-nar",
+                            "version": "1.28.1"
+                        }
+                    }
+                ],
+                "scheduledState": "DISABLED",
+                "bulletinLevel": "WARN",
+                "componentType": "CONTROLLER_SERVICE",
+                "groupIdentifier": "e2167e7c-ae4e-34be-a336-4ef40195464c"
+            },
+            {
+                "identifier": "472ac4d3-677e-3f07-82c2-5d3e166168cd",
+                "instanceIdentifier": "0193105f-ee95-1e93-8b40-df94f5bc5b93",
+                "name": "AirportJsonTreeReader",
+                "comments": "",
+                "type": "org.apache.nifi.json.JsonTreeReader",
+                "bundle": {
+                    "group": "org.apache.nifi",
+                    "artifact": "nifi-record-serialization-services-nar",
+                    "version": "1.28.1"
+                },
+                "properties": {
+                    "schema-branch": null,
+                    "Max String Length": "20 MB",
+                    "schema-application-strategy": "SELECTED_PART",
+                    "Timestamp Format": null,
+                    "schema-inference-cache": null,
+                    "Date Format": null,
+                    "schema-name": "${schema.name}",
+                    "starting-field-strategy": "ROOT_NODE",
+                    "schema-registry": null,
+                    "starting-field-name": null,
+                    "Time Format": null,
+                    "schema-access-strategy": "schema-text-property",
+                    "schema-version": null,
+                    "schema-text": "{\n  \"type\": \"record\",\n  \"name\": \"Airport\",\n  \"fields\": [\n    { \"name\": \"id\", \"type\": \"int\" },\n    { \"name\": \"name\", \"type\": \"string\" },\n    { \"name\": \"city\", \"type\": \"string\" },\n    { \"name\": \"country\", \"type\": \"string\" },\n    { \"name\": \"iata\", \"type\": [\"null\", \"string\"], \"default\": null },\n    { \"name\": \"icao\", \"type\": [\"null\", \"string\"], \"default\": null },\n    { \"name\": \"latitude\", \"type\": \"double\" },\n    { \"name\": \"longitude\", \"type\": \"double\" },\n    { \"name\": \"altitude\", \"type\": \"int\" },\n    { \"name\": \"timezone\", \"type\": \"double\" },\n    { \"name\": \"dst\", \"type\": \"string\" },\n    { \"name\": \"tz_database_timezone\", \"type\": \"string\" },\n    { \"name\": \"type\", \"type\": \"string\" },\n    { \"name\": \"source\", \"type\": \"string\" }\n  ]\n}",
+                    "Allow Comments": "false"
+                },
+                "propertyDescriptors": {
+                    "schema-branch": {
+                        "name": "schema-branch",
+                        "displayName": "Schema Branch",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Max String Length": {
+                        "name": "Max String Length",
+                        "displayName": "Max String Length",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "schema-application-strategy": {
+                        "name": "schema-application-strategy",
+                        "displayName": "Schema Application Strategy",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Timestamp Format": {
+                        "name": "Timestamp Format",
+                        "displayName": "Timestamp Format",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "schema-inference-cache": {
+                        "name": "schema-inference-cache",
+                        "displayName": "Schema Inference Cache",
+                        "identifiesControllerService": true,
+                        "sensitive": false
+                    },
+                    "Date Format": {
+                        "name": "Date Format",
+                        "displayName": "Date Format",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "schema-name": {
+                        "name": "schema-name",
+                        "displayName": "Schema Name",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "starting-field-strategy": {
+                        "name": "starting-field-strategy",
+                        "displayName": "Starting Field Strategy",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "schema-registry": {
+                        "name": "schema-registry",
+                        "displayName": "Schema Registry",
+                        "identifiesControllerService": true,
+                        "sensitive": false
+                    },
+                    "starting-field-name": {
+                        "name": "starting-field-name",
+                        "displayName": "Starting Field Name",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Time Format": {
+                        "name": "Time Format",
+                        "displayName": "Time Format",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "schema-access-strategy": {
+                        "name": "schema-access-strategy",
+                        "displayName": "Schema Access Strategy",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "schema-version": {
+                        "name": "schema-version",
+                        "displayName": "Schema Version",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "schema-text": {
+                        "name": "schema-text",
+                        "displayName": "Schema Text",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Allow Comments": {
+                        "name": "Allow Comments",
+                        "displayName": "Allow Comments",
                         "identifiesControllerService": false,
                         "sensitive": false
                     }
