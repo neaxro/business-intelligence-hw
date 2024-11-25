@@ -12,6 +12,200 @@
         "remoteProcessGroups": [],
         "processors": [
             {
+                "identifier": "30e13f18-92eb-3d40-9aa7-4b22f1c45e15",
+                "instanceIdentifier": "0193103e-fcf0-1446-d56a-133138b37b0b",
+                "name": "LogMessage",
+                "comments": "",
+                "position": {
+                    "x": 1448.0,
+                    "y": 512.0
+                },
+                "type": "org.apache.nifi.processors.standard.LogMessage",
+                "bundle": {
+                    "group": "org.apache.nifi",
+                    "artifact": "nifi-standard-nar",
+                    "version": "1.28.1"
+                },
+                "properties": {
+                    "log-message": null,
+                    "log-level": "info",
+                    "log-prefix": null
+                },
+                "propertyDescriptors": {
+                    "log-message": {
+                        "name": "log-message",
+                        "displayName": "Log message",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "log-level": {
+                        "name": "log-level",
+                        "displayName": "Log Level",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "log-prefix": {
+                        "name": "log-prefix",
+                        "displayName": "Log prefix",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 25,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [
+                    "success"
+                ],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
+                "identifier": "715d51ac-bd15-36f4-a659-9cbda97ec410",
+                "instanceIdentifier": "01931008-fcf0-1446-0e0d-90cddfcea71d",
+                "name": "GetHTTP",
+                "comments": "",
+                "position": {
+                    "x": 912.0,
+                    "y": -464.0
+                },
+                "type": "org.apache.nifi.processors.standard.GetHTTP",
+                "bundle": {
+                    "group": "org.apache.nifi",
+                    "artifact": "nifi-standard-nar",
+                    "version": "1.28.1"
+                },
+                "properties": {
+                    "Proxy Host": null,
+                    "redirect-cookie-policy": "default",
+                    "proxy-configuration-service": null,
+                    "Filename": "test",
+                    "User Agent": null,
+                    "Proxy Port": null,
+                    "URL": "http://api.openweathermap.org/data/2.5/forecast?lat=45&lon=45&appid=10ba18884b2b76feb4fdc4a41456eb53",
+                    "Connection Timeout": "30 sec",
+                    "Data Timeout": "30 sec",
+                    "SSL Context Service": null,
+                    "Username": null,
+                    "Accept Content-Type": null,
+                    "Follow Redirects": "false"
+                },
+                "propertyDescriptors": {
+                    "Proxy Host": {
+                        "name": "Proxy Host",
+                        "displayName": "Proxy Host",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "redirect-cookie-policy": {
+                        "name": "redirect-cookie-policy",
+                        "displayName": "Redirect Cookie Policy",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "proxy-configuration-service": {
+                        "name": "proxy-configuration-service",
+                        "displayName": "Proxy Configuration Service",
+                        "identifiesControllerService": true,
+                        "sensitive": false
+                    },
+                    "Filename": {
+                        "name": "Filename",
+                        "displayName": "Filename",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "User Agent": {
+                        "name": "User Agent",
+                        "displayName": "User Agent",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Proxy Port": {
+                        "name": "Proxy Port",
+                        "displayName": "Proxy Port",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "URL": {
+                        "name": "URL",
+                        "displayName": "URL",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Connection Timeout": {
+                        "name": "Connection Timeout",
+                        "displayName": "Connection Timeout",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Data Timeout": {
+                        "name": "Data Timeout",
+                        "displayName": "Data Timeout",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "SSL Context Service": {
+                        "name": "SSL Context Service",
+                        "displayName": "SSL Context Service",
+                        "identifiesControllerService": true,
+                        "sensitive": false
+                    },
+                    "Username": {
+                        "name": "Username",
+                        "displayName": "Username",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Accept Content-Type": {
+                        "name": "Accept Content-Type",
+                        "displayName": "Accept Content-Type",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Follow Redirects": {
+                        "name": "Follow Redirects",
+                        "displayName": "Follow Redirects",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Password": {
+                        "name": "Password",
+                        "displayName": "Password",
+                        "identifiesControllerService": false,
+                        "sensitive": true
+                    }
+                },
+                "style": {},
+                "schedulingPeriod": "10 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 0,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
                 "identifier": "b1d250b7-d221-3754-8531-b737720f2bb5",
                 "instanceIdentifier": "64421031-0193-1000-cb3e-cb376951b227",
                 "name": "PutInfluxDatabase_2",
@@ -105,12 +299,112 @@
                 "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
             },
             {
+                "identifier": "a27a91c5-108e-35d9-ad7d-f7924dc9a3b7",
+                "instanceIdentifier": "01931010-fcf0-1446-6191-609728e537d2",
+                "name": "ReplaceText",
+                "comments": "",
+                "position": {
+                    "x": 1704.0,
+                    "y": 24.0
+                },
+                "type": "org.apache.nifi.processors.standard.ReplaceText",
+                "bundle": {
+                    "group": "org.apache.nifi",
+                    "artifact": "nifi-standard-nar",
+                    "version": "1.28.1"
+                },
+                "properties": {
+                    "Regular Expression": ".*",
+                    "Replacement Value": "weather,latitude=${latitude},longitude=${longitude},city=\"${city}\" feels_like=${feels_like},humidity=${humidity},pressure=${pressure},sea_level=${sea_level},temp=${temp},temp_max=${temp_max},temp_min=${temp_min},wind_deg=${wind_deg},wind_speed=${wind_speed} ${datetime}",
+                    "Evaluation Mode": "Line-by-Line",
+                    "Text to Prepend": null,
+                    "Line-by-Line Evaluation Mode": "All",
+                    "Character Set": "UTF-8",
+                    "Maximum Buffer Size": "1 MB",
+                    "Replacement Strategy": "Regex Replace",
+                    "Text to Append": null
+                },
+                "propertyDescriptors": {
+                    "Regular Expression": {
+                        "name": "Regular Expression",
+                        "displayName": "Search Value",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Replacement Value": {
+                        "name": "Replacement Value",
+                        "displayName": "Replacement Value",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Evaluation Mode": {
+                        "name": "Evaluation Mode",
+                        "displayName": "Evaluation Mode",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Text to Prepend": {
+                        "name": "Text to Prepend",
+                        "displayName": "Text to Prepend",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Line-by-Line Evaluation Mode": {
+                        "name": "Line-by-Line Evaluation Mode",
+                        "displayName": "Line-by-Line Evaluation Mode",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Character Set": {
+                        "name": "Character Set",
+                        "displayName": "Character Set",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Maximum Buffer Size": {
+                        "name": "Maximum Buffer Size",
+                        "displayName": "Maximum Buffer Size",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Replacement Strategy": {
+                        "name": "Replacement Strategy",
+                        "displayName": "Replacement Strategy",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Text to Append": {
+                        "name": "Text to Append",
+                        "displayName": "Text to Append",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 25,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
                 "identifier": "fcefbed2-bdbe-3d9e-b596-a8f7ce7ac0a2",
                 "instanceIdentifier": "6443506c-0193-1000-2e70-ec34f3948a7c",
                 "name": "GenerateFlowFile",
                 "comments": "",
                 "position": {
-                    "x": 640.0,
+                    "x": 344.0,
                     "y": -432.0
                 },
                 "type": "org.apache.nifi.processors.standard.GenerateFlowFile",
@@ -123,7 +417,7 @@
                     "character-set": "UTF-8",
                     "File Size": "0B",
                     "mime-type": null,
-                    "generate-ff-custom-text": "nifiTEST3,location=us-midwest temperature=100 1732556976227\nnifiTEST3,location=us-west temperature=100 1732556976227\n",
+                    "generate-ff-custom-text": "nifiTEST3,location=us-midwest temperature=10 1732559314219\nnifiTEST3,location=us-west temperature=30 1732559314219\n",
                     "Batch Size": "1",
                     "Unique FlowFiles": "false",
                     "Data Format": "Text"
@@ -191,6 +485,516 @@
                 "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
             },
             {
+                "identifier": "412f173a-6f45-3a11-bef9-3967d431c517",
+                "instanceIdentifier": "01931041-fcf0-1446-4c80-e056a0eef96a",
+                "name": "LogMessage",
+                "comments": "",
+                "position": {
+                    "x": 1952.0,
+                    "y": 504.0
+                },
+                "type": "org.apache.nifi.processors.standard.LogMessage",
+                "bundle": {
+                    "group": "org.apache.nifi",
+                    "artifact": "nifi-standard-nar",
+                    "version": "1.28.1"
+                },
+                "properties": {
+                    "log-message": null,
+                    "log-level": "info",
+                    "log-prefix": null
+                },
+                "propertyDescriptors": {
+                    "log-message": {
+                        "name": "log-message",
+                        "displayName": "Log message",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "log-level": {
+                        "name": "log-level",
+                        "displayName": "Log Level",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "log-prefix": {
+                        "name": "log-prefix",
+                        "displayName": "Log prefix",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 25,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [
+                    "success"
+                ],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
+                "identifier": "780cecfa-dfdb-31e4-8605-260ee928e782",
+                "instanceIdentifier": "0193100c-fcf0-1446-e3bc-a72e3bb5eef7",
+                "name": "EvaluateJsonPath",
+                "comments": "",
+                "position": {
+                    "x": 1702.828857421875,
+                    "y": -232.0
+                },
+                "type": "org.apache.nifi.processors.standard.EvaluateJsonPath",
+                "bundle": {
+                    "group": "org.apache.nifi",
+                    "artifact": "nifi-standard-nar",
+                    "version": "1.28.1"
+                },
+                "properties": {
+                    "Destination": "flowfile-attribute",
+                    "temp": "$.main.temp",
+                    "Max String Length": "20 MB",
+                    "Return Type": "auto-detect",
+                    "Null Value Representation": "empty string",
+                    "pressure": "$.main.pressure",
+                    "temp_max": "$.main.temp_max",
+                    "feels_like": "$.main.feels_like",
+                    "Path Not Found Behavior": "ignore",
+                    "temp_min": "$.main.temp_min",
+                    "wind_deg": "$.wind.deg",
+                    "datetime": "$.dt",
+                    "humidity": "$.main.humidity",
+                    "wind_speed": "$.wind.speed",
+                    "sea_level": "$.main.sea_level"
+                },
+                "propertyDescriptors": {
+                    "Destination": {
+                        "name": "Destination",
+                        "displayName": "Destination",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "temp": {
+                        "name": "temp",
+                        "displayName": "temp",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Max String Length": {
+                        "name": "Max String Length",
+                        "displayName": "Max String Length",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Return Type": {
+                        "name": "Return Type",
+                        "displayName": "Return Type",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Null Value Representation": {
+                        "name": "Null Value Representation",
+                        "displayName": "Null Value Representation",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "pressure": {
+                        "name": "pressure",
+                        "displayName": "pressure",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "temp_max": {
+                        "name": "temp_max",
+                        "displayName": "temp_max",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "feels_like": {
+                        "name": "feels_like",
+                        "displayName": "feels_like",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Path Not Found Behavior": {
+                        "name": "Path Not Found Behavior",
+                        "displayName": "Path Not Found Behavior",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "temp_min": {
+                        "name": "temp_min",
+                        "displayName": "temp_min",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "wind_deg": {
+                        "name": "wind_deg",
+                        "displayName": "wind_deg",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "datetime": {
+                        "name": "datetime",
+                        "displayName": "datetime",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "humidity": {
+                        "name": "humidity",
+                        "displayName": "humidity",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "wind_speed": {
+                        "name": "wind_speed",
+                        "displayName": "wind_speed",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "sea_level": {
+                        "name": "sea_level",
+                        "displayName": "sea_level",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 0,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
+                "identifier": "eefe5f64-fb4d-3b22-a45b-35be31277a74",
+                "instanceIdentifier": "0193103b-fcf0-1446-d449-929ac2225646",
+                "name": "PutInfluxDatabase_2",
+                "comments": "",
+                "position": {
+                    "x": 1712.0,
+                    "y": 288.0
+                },
+                "type": "org.influxdata.nifi.processors.PutInfluxDatabase_2",
+                "bundle": {
+                    "group": "org.influxdata.nifi",
+                    "artifact": "nifi-influx-database-nar",
+                    "version": "1.30.0"
+                },
+                "properties": {
+                    "influxdb-charset": "UTF-8",
+                    "influxdb-service": "d0f64019-6dbf-3f2d-a7a4-6221089a86f0",
+                    "influxdb-write-precision": "S",
+                    "influxdb-log-level": "NONE",
+                    "influxdb-enable-gzip": "false",
+                    "influxdb-org": "bihw",
+                    "influxdb-bucket": "bihwb",
+                    "influxdb-max-records-size": "256 MB"
+                },
+                "propertyDescriptors": {
+                    "influxdb-charset": {
+                        "name": "influxdb-charset",
+                        "displayName": "Character Set",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "influxdb-service": {
+                        "name": "influxdb-service",
+                        "displayName": "InfluxDB Controller Service",
+                        "identifiesControllerService": true,
+                        "sensitive": false
+                    },
+                    "influxdb-write-precision": {
+                        "name": "influxdb-write-precision",
+                        "displayName": "Timestamp precision",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "influxdb-log-level": {
+                        "name": "influxdb-log-level",
+                        "displayName": "Log Level",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "influxdb-enable-gzip": {
+                        "name": "influxdb-enable-gzip",
+                        "displayName": "Enable gzip compression",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "influxdb-org": {
+                        "name": "influxdb-org",
+                        "displayName": "Organization",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "influxdb-bucket": {
+                        "name": "influxdb-bucket",
+                        "displayName": "Bucket",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "influxdb-max-records-size": {
+                        "name": "influxdb-max-records-size",
+                        "displayName": "Max size of records",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 0,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
+                "identifier": "dcd53f6c-8a0b-3b27-8dc9-08c5aea3d237",
+                "instanceIdentifier": "01931013-fcf0-1446-4b34-ebeb2675ec3d",
+                "name": "LogMessage",
+                "comments": "",
+                "position": {
+                    "x": 2480.0,
+                    "y": -536.0
+                },
+                "type": "org.apache.nifi.processors.standard.LogMessage",
+                "bundle": {
+                    "group": "org.apache.nifi",
+                    "artifact": "nifi-standard-nar",
+                    "version": "1.28.1"
+                },
+                "properties": {
+                    "log-message": null,
+                    "log-level": "info",
+                    "log-prefix": null
+                },
+                "propertyDescriptors": {
+                    "log-message": {
+                        "name": "log-message",
+                        "displayName": "Log message",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "log-level": {
+                        "name": "log-level",
+                        "displayName": "Log Level",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "log-prefix": {
+                        "name": "log-prefix",
+                        "displayName": "Log prefix",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 25,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [
+                    "success"
+                ],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
+                "identifier": "fdb81092-3455-3a33-a1cc-3c34f0e0b060",
+                "instanceIdentifier": "01931028-fcf0-1446-ccf6-491920142e60",
+                "name": "Attribute: City, Lat, Lon",
+                "comments": "",
+                "position": {
+                    "x": 1702.828857421875,
+                    "y": -704.0
+                },
+                "type": "org.apache.nifi.processors.standard.EvaluateJsonPath",
+                "bundle": {
+                    "group": "org.apache.nifi",
+                    "artifact": "nifi-standard-nar",
+                    "version": "1.28.1"
+                },
+                "properties": {
+                    "Destination": "flowfile-attribute",
+                    "Max String Length": "20 MB",
+                    "city": "$.city.name",
+                    "Return Type": "auto-detect",
+                    "latitude": "$.city.coord.lat",
+                    "Null Value Representation": "empty string",
+                    "Path Not Found Behavior": "ignore",
+                    "longitude": "$.city.coord.lon"
+                },
+                "propertyDescriptors": {
+                    "Destination": {
+                        "name": "Destination",
+                        "displayName": "Destination",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Max String Length": {
+                        "name": "Max String Length",
+                        "displayName": "Max String Length",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "city": {
+                        "name": "city",
+                        "displayName": "city",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Return Type": {
+                        "name": "Return Type",
+                        "displayName": "Return Type",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "latitude": {
+                        "name": "latitude",
+                        "displayName": "latitude",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Null Value Representation": {
+                        "name": "Null Value Representation",
+                        "displayName": "Null Value Representation",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Path Not Found Behavior": {
+                        "name": "Path Not Found Behavior",
+                        "displayName": "Path Not Found Behavior",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "longitude": {
+                        "name": "longitude",
+                        "displayName": "longitude",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 0,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [
+                    "unmatched"
+                ],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
+                "identifier": "d2587417-3347-3787-8175-8d55d35c1a8a",
+                "instanceIdentifier": "01931020-fcf0-1446-6de6-b580b3856fd6",
+                "name": "Get list items",
+                "comments": "",
+                "position": {
+                    "x": 1710.828857421875,
+                    "y": -480.0
+                },
+                "type": "org.apache.nifi.processors.standard.SplitJson",
+                "bundle": {
+                    "group": "org.apache.nifi",
+                    "artifact": "nifi-standard-nar",
+                    "version": "1.28.1"
+                },
+                "properties": {
+                    "Max String Length": "20 MB",
+                    "Null Value Representation": "empty string",
+                    "JsonPath Expression": "$.list[*]"
+                },
+                "propertyDescriptors": {
+                    "Max String Length": {
+                        "name": "Max String Length",
+                        "displayName": "Max String Length",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Null Value Representation": {
+                        "name": "Null Value Representation",
+                        "displayName": "Null Value Representation",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "JsonPath Expression": {
+                        "name": "JsonPath Expression",
+                        "displayName": "JsonPath Expression",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 0,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [
+                    "original"
+                ],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
                 "identifier": "0a30061a-cc67-357f-adb5-387a5e04b49c",
                 "instanceIdentifier": "01931000-fcf0-1446-259e-6f351f8baef6",
                 "name": "LogMessage",
@@ -242,6 +1046,92 @@
                 "autoTerminatedRelationships": [
                     "success"
                 ],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
+                "identifier": "c15f3d6f-da65-317d-905c-530502bd8685",
+                "instanceIdentifier": "0193100b-fcf0-1446-14db-76d6895fe640",
+                "name": "Test: OpenWeatherApi return data",
+                "comments": "",
+                "position": {
+                    "x": 1702.828857421875,
+                    "y": -920.0
+                },
+                "type": "org.apache.nifi.processors.standard.GenerateFlowFile",
+                "bundle": {
+                    "group": "org.apache.nifi",
+                    "artifact": "nifi-standard-nar",
+                    "version": "1.28.1"
+                },
+                "properties": {
+                    "character-set": "UTF-8",
+                    "File Size": "0B",
+                    "mime-type": null,
+                    "generate-ff-custom-text": "{\n  \"cod\" : \"200\",\n  \"message\" : 0,\n  \"cnt\" : 40,\n  \"list\" : [ {\n    \"dt\" : 1732568400,\n    \"main\" : {\n      \"temp\" : 279.1,\n      \"feels_like\" : 279.1,\n      \"temp_min\" : 279.1,\n      \"temp_max\" : 279.13,\n      \"pressure\" : 1019,\n      \"sea_level\" : 1019,\n      \"grnd_level\" : 1013,\n      \"humidity\" : 86,\n      \"temp_kf\" : -0.03\n    },\n    \"weather\" : [ {\n      \"id\" : 804,\n      \"main\" : \"Clouds\",\n      \"description\" : \"overcast clouds\",\n      \"icon\" : \"04n\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 0.88,\n      \"deg\" : 242,\n      \"gust\" : 0.98\n    },\n    \"visibility\" : 10000,\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"n\"\n    },\n    \"dt_txt\" : \"2024-11-25 21:00:00\"\n  }, {\n    \"dt\" : 1732579200,\n    \"main\" : {\n      \"temp\" : 279.17,\n      \"feels_like\" : 279.17,\n      \"temp_min\" : 279.17,\n      \"temp_max\" : 279.21,\n      \"pressure\" : 1019,\n      \"sea_level\" : 1019,\n      \"grnd_level\" : 1014,\n      \"humidity\" : 86,\n      \"temp_kf\" : -0.04\n    },\n    \"weather\" : [ {\n      \"id\" : 804,\n      \"main\" : \"Clouds\",\n      \"description\" : \"overcast clouds\",\n      \"icon\" : \"04n\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 0.78,\n      \"deg\" : 127,\n      \"gust\" : 0.91\n    },\n    \"visibility\" : 10000,\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"n\"\n    },\n    \"dt_txt\" : \"2024-11-26 00:00:00\"\n  }, {\n    \"dt\" : 1732590000,\n    \"main\" : {\n      \"temp\" : 279.23,\n      \"feels_like\" : 279.23,\n      \"temp_min\" : 279.23,\n      \"temp_max\" : 279.23,\n      \"pressure\" : 1020,\n      \"sea_level\" : 1020,\n      \"grnd_level\" : 1014,\n      \"humidity\" : 86,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 804,\n      \"main\" : \"Clouds\",\n      \"description\" : \"overcast clouds\",\n      \"icon\" : \"04n\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 1.31,\n      \"deg\" : 69,\n      \"gust\" : 1.62\n    },\n    \"visibility\" : 10000,\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"n\"\n    },\n    \"dt_txt\" : \"2024-11-26 03:00:00\"\n  }, {\n    \"dt\" : 1732600800,\n    \"main\" : {\n      \"temp\" : 279.55,\n      \"feels_like\" : 279.55,\n      \"temp_min\" : 279.55,\n      \"temp_max\" : 279.55,\n      \"pressure\" : 1021,\n      \"sea_level\" : 1021,\n      \"grnd_level\" : 1015,\n      \"humidity\" : 84,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 804,\n      \"main\" : \"Clouds\",\n      \"description\" : \"overcast clouds\",\n      \"icon\" : \"04d\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 1.28,\n      \"deg\" : 51,\n      \"gust\" : 1.74\n    },\n    \"visibility\" : 10000,\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"d\"\n    },\n    \"dt_txt\" : \"2024-11-26 06:00:00\"\n  }, {\n    \"dt\" : 1732611600,\n    \"main\" : {\n      \"temp\" : 280.15,\n      \"feels_like\" : 278.95,\n      \"temp_min\" : 280.15,\n      \"temp_max\" : 280.15,\n      \"pressure\" : 1020,\n      \"sea_level\" : 1020,\n      \"grnd_level\" : 1014,\n      \"humidity\" : 82,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 804,\n      \"main\" : \"Clouds\",\n      \"description\" : \"overcast clouds\",\n      \"icon\" : \"04d\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 1.89,\n      \"deg\" : 41,\n      \"gust\" : 2.17\n    },\n    \"visibility\" : 10000,\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"d\"\n    },\n    \"dt_txt\" : \"2024-11-26 09:00:00\"\n  }, {\n    \"dt\" : 1732622400,\n    \"main\" : {\n      \"temp\" : 280.56,\n      \"feels_like\" : 278.64,\n      \"temp_min\" : 280.56,\n      \"temp_max\" : 280.56,\n      \"pressure\" : 1020,\n      \"sea_level\" : 1020,\n      \"grnd_level\" : 1014,\n      \"humidity\" : 77,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 804,\n      \"main\" : \"Clouds\",\n      \"description\" : \"overcast clouds\",\n      \"icon\" : \"04d\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 2.86,\n      \"deg\" : 27,\n      \"gust\" : 3.5\n    },\n    \"visibility\" : 10000,\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"d\"\n    },\n    \"dt_txt\" : \"2024-11-26 12:00:00\"\n  }, {\n    \"dt\" : 1732633200,\n    \"main\" : {\n      \"temp\" : 280.26,\n      \"feels_like\" : 278.27,\n      \"temp_min\" : 280.26,\n      \"temp_max\" : 280.26,\n      \"pressure\" : 1020,\n      \"sea_level\" : 1020,\n      \"grnd_level\" : 1014,\n      \"humidity\" : 76,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 804,\n      \"main\" : \"Clouds\",\n      \"description\" : \"overcast clouds\",\n      \"icon\" : \"04n\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 2.88,\n      \"deg\" : 33,\n      \"gust\" : 4.39\n    },\n    \"visibility\" : 10000,\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"n\"\n    },\n    \"dt_txt\" : \"2024-11-26 15:00:00\"\n  }, {\n    \"dt\" : 1732644000,\n    \"main\" : {\n      \"temp\" : 279.75,\n      \"feels_like\" : 277.15,\n      \"temp_min\" : 279.75,\n      \"temp_max\" : 279.75,\n      \"pressure\" : 1019,\n      \"sea_level\" : 1019,\n      \"grnd_level\" : 1014,\n      \"humidity\" : 75,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 804,\n      \"main\" : \"Clouds\",\n      \"description\" : \"overcast clouds\",\n      \"icon\" : \"04n\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 3.69,\n      \"deg\" : 34,\n      \"gust\" : 5.12\n    },\n    \"visibility\" : 10000,\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"n\"\n    },\n    \"dt_txt\" : \"2024-11-26 18:00:00\"\n  }, {\n    \"dt\" : 1732654800,\n    \"main\" : {\n      \"temp\" : 279.28,\n      \"feels_like\" : 276.83,\n      \"temp_min\" : 279.28,\n      \"temp_max\" : 279.28,\n      \"pressure\" : 1018,\n      \"sea_level\" : 1018,\n      \"grnd_level\" : 1013,\n      \"humidity\" : 74,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 804,\n      \"main\" : \"Clouds\",\n      \"description\" : \"overcast clouds\",\n      \"icon\" : \"04n\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 3.28,\n      \"deg\" : 20,\n      \"gust\" : 4.8\n    },\n    \"visibility\" : 10000,\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"n\"\n    },\n    \"dt_txt\" : \"2024-11-26 21:00:00\"\n  }, {\n    \"dt\" : 1732665600,\n    \"main\" : {\n      \"temp\" : 278.91,\n      \"feels_like\" : 276.09,\n      \"temp_min\" : 278.91,\n      \"temp_max\" : 278.91,\n      \"pressure\" : 1017,\n      \"sea_level\" : 1017,\n      \"grnd_level\" : 1012,\n      \"humidity\" : 72,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 804,\n      \"main\" : \"Clouds\",\n      \"description\" : \"overcast clouds\",\n      \"icon\" : \"04n\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 3.75,\n      \"deg\" : 5,\n      \"gust\" : 5.27\n    },\n    \"visibility\" : 10000,\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"n\"\n    },\n    \"dt_txt\" : \"2024-11-27 00:00:00\"\n  }, {\n    \"dt\" : 1732676400,\n    \"main\" : {\n      \"temp\" : 278.49,\n      \"feels_like\" : 274.8,\n      \"temp_min\" : 278.49,\n      \"temp_max\" : 278.49,\n      \"pressure\" : 1016,\n      \"sea_level\" : 1016,\n      \"grnd_level\" : 1010,\n      \"humidity\" : 70,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 804,\n      \"main\" : \"Clouds\",\n      \"description\" : \"overcast clouds\",\n      \"icon\" : \"04n\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 5.25,\n      \"deg\" : 3,\n      \"gust\" : 7.51\n    },\n    \"visibility\" : 10000,\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"n\"\n    },\n    \"dt_txt\" : \"2024-11-27 03:00:00\"\n  }, {\n    \"dt\" : 1732687200,\n    \"main\" : {\n      \"temp\" : 276.86,\n      \"feels_like\" : 274.04,\n      \"temp_min\" : 276.86,\n      \"temp_max\" : 276.86,\n      \"pressure\" : 1016,\n      \"sea_level\" : 1016,\n      \"grnd_level\" : 1011,\n      \"humidity\" : 85,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 500,\n      \"main\" : \"Rain\",\n      \"description\" : \"light rain\",\n      \"icon\" : \"10d\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 3.09,\n      \"deg\" : 352,\n      \"gust\" : 3.98\n    },\n    \"visibility\" : 5823,\n    \"pop\" : 1,\n    \"rain\" : {\n      \"3h\" : 1.87\n    },\n    \"sys\" : {\n      \"pod\" : \"d\"\n    },\n    \"dt_txt\" : \"2024-11-27 06:00:00\"\n  }, {\n    \"dt\" : 1732698000,\n    \"main\" : {\n      \"temp\" : 275.47,\n      \"feels_like\" : 271.32,\n      \"temp_min\" : 275.47,\n      \"temp_max\" : 275.47,\n      \"pressure\" : 1015,\n      \"sea_level\" : 1015,\n      \"grnd_level\" : 1010,\n      \"humidity\" : 97,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 501,\n      \"main\" : \"Rain\",\n      \"description\" : \"moderate rain\",\n      \"icon\" : \"10d\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 4.67,\n      \"deg\" : 312,\n      \"gust\" : 6.79\n    },\n    \"visibility\" : 253,\n    \"pop\" : 1,\n    \"rain\" : {\n      \"3h\" : 4.72\n    },\n    \"sys\" : {\n      \"pod\" : \"d\"\n    },\n    \"dt_txt\" : \"2024-11-27 09:00:00\"\n  }, {\n    \"dt\" : 1732708800,\n    \"main\" : {\n      \"temp\" : 275.58,\n      \"feels_like\" : 271.41,\n      \"temp_min\" : 275.58,\n      \"temp_max\" : 275.58,\n      \"pressure\" : 1015,\n      \"sea_level\" : 1015,\n      \"grnd_level\" : 1010,\n      \"humidity\" : 97,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 600,\n      \"main\" : \"Snow\",\n      \"description\" : \"light snow\",\n      \"icon\" : \"13d\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 4.75,\n      \"deg\" : 308,\n      \"gust\" : 7.43\n    },\n    \"visibility\" : 272,\n    \"pop\" : 1,\n    \"snow\" : {\n      \"3h\" : 0.47\n    },\n    \"sys\" : {\n      \"pod\" : \"d\"\n    },\n    \"dt_txt\" : \"2024-11-27 12:00:00\"\n  }, {\n    \"dt\" : 1732719600,\n    \"main\" : {\n      \"temp\" : 275.51,\n      \"feels_like\" : 270.93,\n      \"temp_min\" : 275.51,\n      \"temp_max\" : 275.51,\n      \"pressure\" : 1016,\n      \"sea_level\" : 1016,\n      \"grnd_level\" : 1010,\n      \"humidity\" : 98,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 600,\n      \"main\" : \"Snow\",\n      \"description\" : \"light snow\",\n      \"icon\" : \"13n\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 5.5,\n      \"deg\" : 291,\n      \"gust\" : 8.32\n    },\n    \"visibility\" : 365,\n    \"pop\" : 0.85,\n    \"snow\" : {\n      \"3h\" : 0.36\n    },\n    \"sys\" : {\n      \"pod\" : \"n\"\n    },\n    \"dt_txt\" : \"2024-11-27 15:00:00\"\n  }, {\n    \"dt\" : 1732730400,\n    \"main\" : {\n      \"temp\" : 275.49,\n      \"feels_like\" : 270.61,\n      \"temp_min\" : 275.49,\n      \"temp_max\" : 275.49,\n      \"pressure\" : 1016,\n      \"sea_level\" : 1016,\n      \"grnd_level\" : 1011,\n      \"humidity\" : 98,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 500,\n      \"main\" : \"Rain\",\n      \"description\" : \"light rain\",\n      \"icon\" : \"10n\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 6.13,\n      \"deg\" : 283,\n      \"gust\" : 9.81\n    },\n    \"visibility\" : 385,\n    \"pop\" : 1,\n    \"rain\" : {\n      \"3h\" : 0.55\n    },\n    \"sys\" : {\n      \"pod\" : \"n\"\n    },\n    \"dt_txt\" : \"2024-11-27 18:00:00\"\n  }, {\n    \"dt\" : 1732741200,\n    \"main\" : {\n      \"temp\" : 275.23,\n      \"feels_like\" : 269.61,\n      \"temp_min\" : 275.23,\n      \"temp_max\" : 275.23,\n      \"pressure\" : 1017,\n      \"sea_level\" : 1017,\n      \"grnd_level\" : 1011,\n      \"humidity\" : 95,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 600,\n      \"main\" : \"Snow\",\n      \"description\" : \"light snow\",\n      \"icon\" : \"13n\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 7.77,\n      \"deg\" : 288,\n      \"gust\" : 11.85\n    },\n    \"visibility\" : 195,\n    \"pop\" : 1,\n    \"snow\" : {\n      \"3h\" : 0.99\n    },\n    \"sys\" : {\n      \"pod\" : \"n\"\n    },\n    \"dt_txt\" : \"2024-11-27 21:00:00\"\n  }, {\n    \"dt\" : 1732752000,\n    \"main\" : {\n      \"temp\" : 274.93,\n      \"feels_like\" : 269.06,\n      \"temp_min\" : 274.93,\n      \"temp_max\" : 274.93,\n      \"pressure\" : 1018,\n      \"sea_level\" : 1018,\n      \"grnd_level\" : 1012,\n      \"humidity\" : 96,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 601,\n      \"main\" : \"Snow\",\n      \"description\" : \"snow\",\n      \"icon\" : \"13n\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 8.23,\n      \"deg\" : 288,\n      \"gust\" : 12.88\n    },\n    \"visibility\" : 53,\n    \"pop\" : 1,\n    \"snow\" : {\n      \"3h\" : 1.64\n    },\n    \"sys\" : {\n      \"pod\" : \"n\"\n    },\n    \"dt_txt\" : \"2024-11-28 00:00:00\"\n  }, {\n    \"dt\" : 1732762800,\n    \"main\" : {\n      \"temp\" : 275,\n      \"feels_like\" : 269.29,\n      \"temp_min\" : 275,\n      \"temp_max\" : 275,\n      \"pressure\" : 1019,\n      \"sea_level\" : 1019,\n      \"grnd_level\" : 1013,\n      \"humidity\" : 97,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 601,\n      \"main\" : \"Snow\",\n      \"description\" : \"snow\",\n      \"icon\" : \"13n\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 7.83,\n      \"deg\" : 291,\n      \"gust\" : 13.74\n    },\n    \"visibility\" : 24,\n    \"pop\" : 1,\n    \"snow\" : {\n      \"3h\" : 3.76\n    },\n    \"sys\" : {\n      \"pod\" : \"n\"\n    },\n    \"dt_txt\" : \"2024-11-28 03:00:00\"\n  }, {\n    \"dt\" : 1732773600,\n    \"main\" : {\n      \"temp\" : 275.04,\n      \"feels_like\" : 269.39,\n      \"temp_min\" : 275.04,\n      \"temp_max\" : 275.04,\n      \"pressure\" : 1020,\n      \"sea_level\" : 1020,\n      \"grnd_level\" : 1015,\n      \"humidity\" : 96,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 600,\n      \"main\" : \"Snow\",\n      \"description\" : \"light snow\",\n      \"icon\" : \"13d\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 7.71,\n      \"deg\" : 289,\n      \"gust\" : 13.1\n    },\n    \"visibility\" : 40,\n    \"pop\" : 1,\n    \"snow\" : {\n      \"3h\" : 0.58\n    },\n    \"sys\" : {\n      \"pod\" : \"d\"\n    },\n    \"dt_txt\" : \"2024-11-28 06:00:00\"\n  }, {\n    \"dt\" : 1732784400,\n    \"main\" : {\n      \"temp\" : 275.56,\n      \"feels_like\" : 270.29,\n      \"temp_min\" : 275.56,\n      \"temp_max\" : 275.56,\n      \"pressure\" : 1021,\n      \"sea_level\" : 1021,\n      \"grnd_level\" : 1015,\n      \"humidity\" : 96,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 804,\n      \"main\" : \"Clouds\",\n      \"description\" : \"overcast clouds\",\n      \"icon\" : \"04d\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 7.11,\n      \"deg\" : 297,\n      \"gust\" : 12.52\n    },\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"d\"\n    },\n    \"dt_txt\" : \"2024-11-28 09:00:00\"\n  }, {\n    \"dt\" : 1732795200,\n    \"main\" : {\n      \"temp\" : 275.65,\n      \"feels_like\" : 270.55,\n      \"temp_min\" : 275.65,\n      \"temp_max\" : 275.65,\n      \"pressure\" : 1022,\n      \"sea_level\" : 1022,\n      \"grnd_level\" : 1016,\n      \"humidity\" : 96,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 804,\n      \"main\" : \"Clouds\",\n      \"description\" : \"overcast clouds\",\n      \"icon\" : \"04d\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 6.74,\n      \"deg\" : 291,\n      \"gust\" : 12.12\n    },\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"d\"\n    },\n    \"dt_txt\" : \"2024-11-28 12:00:00\"\n  }, {\n    \"dt\" : 1732806000,\n    \"main\" : {\n      \"temp\" : 275.47,\n      \"feels_like\" : 270.14,\n      \"temp_min\" : 275.47,\n      \"temp_max\" : 275.47,\n      \"pressure\" : 1023,\n      \"sea_level\" : 1023,\n      \"grnd_level\" : 1017,\n      \"humidity\" : 96,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 804,\n      \"main\" : \"Clouds\",\n      \"description\" : \"overcast clouds\",\n      \"icon\" : \"04n\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 7.19,\n      \"deg\" : 289,\n      \"gust\" : 12.22\n    },\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"n\"\n    },\n    \"dt_txt\" : \"2024-11-28 15:00:00\"\n  }, {\n    \"dt\" : 1732816800,\n    \"main\" : {\n      \"temp\" : 275.43,\n      \"feels_like\" : 270.1,\n      \"temp_min\" : 275.43,\n      \"temp_max\" : 275.43,\n      \"pressure\" : 1023,\n      \"sea_level\" : 1023,\n      \"grnd_level\" : 1018,\n      \"humidity\" : 96,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 804,\n      \"main\" : \"Clouds\",\n      \"description\" : \"overcast clouds\",\n      \"icon\" : \"04n\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 7.17,\n      \"deg\" : 287,\n      \"gust\" : 11.72\n    },\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"n\"\n    },\n    \"dt_txt\" : \"2024-11-28 18:00:00\"\n  }, {\n    \"dt\" : 1732827600,\n    \"main\" : {\n      \"temp\" : 275.51,\n      \"feels_like\" : 270.48,\n      \"temp_min\" : 275.51,\n      \"temp_max\" : 275.51,\n      \"pressure\" : 1024,\n      \"sea_level\" : 1024,\n      \"grnd_level\" : 1018,\n      \"humidity\" : 96,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 804,\n      \"main\" : \"Clouds\",\n      \"description\" : \"overcast clouds\",\n      \"icon\" : \"04n\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 6.48,\n      \"deg\" : 291,\n      \"gust\" : 10.95\n    },\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"n\"\n    },\n    \"dt_txt\" : \"2024-11-28 21:00:00\"\n  }, {\n    \"dt\" : 1732838400,\n    \"main\" : {\n      \"temp\" : 275.61,\n      \"feels_like\" : 270.81,\n      \"temp_min\" : 275.61,\n      \"temp_max\" : 275.61,\n      \"pressure\" : 1025,\n      \"sea_level\" : 1025,\n      \"grnd_level\" : 1019,\n      \"humidity\" : 96,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 804,\n      \"main\" : \"Clouds\",\n      \"description\" : \"overcast clouds\",\n      \"icon\" : \"04n\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 6.02,\n      \"deg\" : 292,\n      \"gust\" : 10.11\n    },\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"n\"\n    },\n    \"dt_txt\" : \"2024-11-29 00:00:00\"\n  }, {\n    \"dt\" : 1732849200,\n    \"main\" : {\n      \"temp\" : 275.62,\n      \"feels_like\" : 270.96,\n      \"temp_min\" : 275.62,\n      \"temp_max\" : 275.62,\n      \"pressure\" : 1025,\n      \"sea_level\" : 1025,\n      \"grnd_level\" : 1020,\n      \"humidity\" : 96,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 804,\n      \"main\" : \"Clouds\",\n      \"description\" : \"overcast clouds\",\n      \"icon\" : \"04n\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 5.72,\n      \"deg\" : 289,\n      \"gust\" : 9.6\n    },\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"n\"\n    },\n    \"dt_txt\" : \"2024-11-29 03:00:00\"\n  }, {\n    \"dt\" : 1732860000,\n    \"main\" : {\n      \"temp\" : 275.42,\n      \"feels_like\" : 271.1,\n      \"temp_min\" : 275.42,\n      \"temp_max\" : 275.42,\n      \"pressure\" : 1026,\n      \"sea_level\" : 1026,\n      \"grnd_level\" : 1021,\n      \"humidity\" : 97,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 804,\n      \"main\" : \"Clouds\",\n      \"description\" : \"overcast clouds\",\n      \"icon\" : \"04d\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 4.94,\n      \"deg\" : 283,\n      \"gust\" : 8.47\n    },\n    \"visibility\" : 58,\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"d\"\n    },\n    \"dt_txt\" : \"2024-11-29 06:00:00\"\n  }, {\n    \"dt\" : 1732870800,\n    \"main\" : {\n      \"temp\" : 276.02,\n      \"feels_like\" : 272.21,\n      \"temp_min\" : 276.02,\n      \"temp_max\" : 276.02,\n      \"pressure\" : 1026,\n      \"sea_level\" : 1026,\n      \"grnd_level\" : 1021,\n      \"humidity\" : 95,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 500,\n      \"main\" : \"Rain\",\n      \"description\" : \"light rain\",\n      \"icon\" : \"10d\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 4.3,\n      \"deg\" : 288,\n      \"gust\" : 6.96\n    },\n    \"visibility\" : 1423,\n    \"pop\" : 0.29,\n    \"rain\" : {\n      \"3h\" : 0.18\n    },\n    \"sys\" : {\n      \"pod\" : \"d\"\n    },\n    \"dt_txt\" : \"2024-11-29 09:00:00\"\n  }, {\n    \"dt\" : 1732881600,\n    \"main\" : {\n      \"temp\" : 276.15,\n      \"feels_like\" : 272.48,\n      \"temp_min\" : 276.15,\n      \"temp_max\" : 276.15,\n      \"pressure\" : 1027,\n      \"sea_level\" : 1027,\n      \"grnd_level\" : 1021,\n      \"humidity\" : 94,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 500,\n      \"main\" : \"Rain\",\n      \"description\" : \"light rain\",\n      \"icon\" : \"10d\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 4.11,\n      \"deg\" : 304,\n      \"gust\" : 6.57\n    },\n    \"visibility\" : 1994,\n    \"pop\" : 0.2,\n    \"rain\" : {\n      \"3h\" : 0.13\n    },\n    \"sys\" : {\n      \"pod\" : \"d\"\n    },\n    \"dt_txt\" : \"2024-11-29 12:00:00\"\n  }, {\n    \"dt\" : 1732892400,\n    \"main\" : {\n      \"temp\" : 276.11,\n      \"feels_like\" : 272.84,\n      \"temp_min\" : 276.11,\n      \"temp_max\" : 276.11,\n      \"pressure\" : 1028,\n      \"sea_level\" : 1028,\n      \"grnd_level\" : 1022,\n      \"humidity\" : 96,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 804,\n      \"main\" : \"Clouds\",\n      \"description\" : \"overcast clouds\",\n      \"icon\" : \"04n\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 3.49,\n      \"deg\" : 301,\n      \"gust\" : 6.55\n    },\n    \"visibility\" : 1354,\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"n\"\n    },\n    \"dt_txt\" : \"2024-11-29 15:00:00\"\n  }, {\n    \"dt\" : 1732903200,\n    \"main\" : {\n      \"temp\" : 276.14,\n      \"feels_like\" : 273.12,\n      \"temp_min\" : 276.14,\n      \"temp_max\" : 276.14,\n      \"pressure\" : 1029,\n      \"sea_level\" : 1029,\n      \"grnd_level\" : 1023,\n      \"humidity\" : 96,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 804,\n      \"main\" : \"Clouds\",\n      \"description\" : \"overcast clouds\",\n      \"icon\" : \"04n\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 3.16,\n      \"deg\" : 296,\n      \"gust\" : 5.58\n    },\n    \"visibility\" : 1525,\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"n\"\n    },\n    \"dt_txt\" : \"2024-11-29 18:00:00\"\n  }, {\n    \"dt\" : 1732914000,\n    \"main\" : {\n      \"temp\" : 276.04,\n      \"feels_like\" : 272.9,\n      \"temp_min\" : 276.04,\n      \"temp_max\" : 276.04,\n      \"pressure\" : 1029,\n      \"sea_level\" : 1029,\n      \"grnd_level\" : 1023,\n      \"humidity\" : 97,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 500,\n      \"main\" : \"Rain\",\n      \"description\" : \"light rain\",\n      \"icon\" : \"10n\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 3.29,\n      \"deg\" : 306,\n      \"gust\" : 5.45\n    },\n    \"visibility\" : 633,\n    \"pop\" : 0.27,\n    \"rain\" : {\n      \"3h\" : 0.12\n    },\n    \"sys\" : {\n      \"pod\" : \"n\"\n    },\n    \"dt_txt\" : \"2024-11-29 21:00:00\"\n  }, {\n    \"dt\" : 1732924800,\n    \"main\" : {\n      \"temp\" : 276.1,\n      \"feels_like\" : 272.9,\n      \"temp_min\" : 276.1,\n      \"temp_max\" : 276.1,\n      \"pressure\" : 1029,\n      \"sea_level\" : 1029,\n      \"grnd_level\" : 1023,\n      \"humidity\" : 98,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 804,\n      \"main\" : \"Clouds\",\n      \"description\" : \"overcast clouds\",\n      \"icon\" : \"04n\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 3.39,\n      \"deg\" : 307,\n      \"gust\" : 5.43\n    },\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"n\"\n    },\n    \"dt_txt\" : \"2024-11-30 00:00:00\"\n  }, {\n    \"dt\" : 1732935600,\n    \"main\" : {\n      \"temp\" : 276.27,\n      \"feels_like\" : 273.18,\n      \"temp_min\" : 276.27,\n      \"temp_max\" : 276.27,\n      \"pressure\" : 1030,\n      \"sea_level\" : 1030,\n      \"grnd_level\" : 1025,\n      \"humidity\" : 97,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 804,\n      \"main\" : \"Clouds\",\n      \"description\" : \"overcast clouds\",\n      \"icon\" : \"04n\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 3.28,\n      \"deg\" : 320,\n      \"gust\" : 5.58\n    },\n    \"visibility\" : 227,\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"n\"\n    },\n    \"dt_txt\" : \"2024-11-30 03:00:00\"\n  }, {\n    \"dt\" : 1732946400,\n    \"main\" : {\n      \"temp\" : 276.61,\n      \"feels_like\" : 273.96,\n      \"temp_min\" : 276.61,\n      \"temp_max\" : 276.61,\n      \"pressure\" : 1032,\n      \"sea_level\" : 1032,\n      \"grnd_level\" : 1026,\n      \"humidity\" : 96,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 804,\n      \"main\" : \"Clouds\",\n      \"description\" : \"overcast clouds\",\n      \"icon\" : \"04d\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 2.81,\n      \"deg\" : 310,\n      \"gust\" : 4.18\n    },\n    \"visibility\" : 635,\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"d\"\n    },\n    \"dt_txt\" : \"2024-11-30 06:00:00\"\n  }, {\n    \"dt\" : 1732957200,\n    \"main\" : {\n      \"temp\" : 277.96,\n      \"feels_like\" : 275.15,\n      \"temp_min\" : 277.96,\n      \"temp_max\" : 277.96,\n      \"pressure\" : 1031,\n      \"sea_level\" : 1031,\n      \"grnd_level\" : 1026,\n      \"humidity\" : 84,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 804,\n      \"main\" : \"Clouds\",\n      \"description\" : \"overcast clouds\",\n      \"icon\" : \"04d\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 100\n    },\n    \"wind\" : {\n      \"speed\" : 3.4,\n      \"deg\" : 304,\n      \"gust\" : 3.71\n    },\n    \"visibility\" : 10000,\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"d\"\n    },\n    \"dt_txt\" : \"2024-11-30 09:00:00\"\n  }, {\n    \"dt\" : 1732968000,\n    \"main\" : {\n      \"temp\" : 279.37,\n      \"feels_like\" : 276.59,\n      \"temp_min\" : 279.37,\n      \"temp_max\" : 279.37,\n      \"pressure\" : 1031,\n      \"sea_level\" : 1031,\n      \"grnd_level\" : 1026,\n      \"humidity\" : 71,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 804,\n      \"main\" : \"Clouds\",\n      \"description\" : \"overcast clouds\",\n      \"icon\" : \"04d\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 91\n    },\n    \"wind\" : {\n      \"speed\" : 3.86,\n      \"deg\" : 316,\n      \"gust\" : 4.33\n    },\n    \"visibility\" : 10000,\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"d\"\n    },\n    \"dt_txt\" : \"2024-11-30 12:00:00\"\n  }, {\n    \"dt\" : 1732978800,\n    \"main\" : {\n      \"temp\" : 276.74,\n      \"feels_like\" : 273.52,\n      \"temp_min\" : 276.74,\n      \"temp_max\" : 276.74,\n      \"pressure\" : 1033,\n      \"sea_level\" : 1033,\n      \"grnd_level\" : 1027,\n      \"humidity\" : 85,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 801,\n      \"main\" : \"Clouds\",\n      \"description\" : \"few clouds\",\n      \"icon\" : \"02n\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 17\n    },\n    \"wind\" : {\n      \"speed\" : 3.62,\n      \"deg\" : 300,\n      \"gust\" : 5.77\n    },\n    \"visibility\" : 10000,\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"n\"\n    },\n    \"dt_txt\" : \"2024-11-30 15:00:00\"\n  }, {\n    \"dt\" : 1732989600,\n    \"main\" : {\n      \"temp\" : 275.74,\n      \"feels_like\" : 272.53,\n      \"temp_min\" : 275.74,\n      \"temp_max\" : 275.74,\n      \"pressure\" : 1033,\n      \"sea_level\" : 1033,\n      \"grnd_level\" : 1027,\n      \"humidity\" : 84,\n      \"temp_kf\" : 0\n    },\n    \"weather\" : [ {\n      \"id\" : 801,\n      \"main\" : \"Clouds\",\n      \"description\" : \"few clouds\",\n      \"icon\" : \"02n\"\n    } ],\n    \"clouds\" : {\n      \"all\" : 19\n    },\n    \"wind\" : {\n      \"speed\" : 3.3,\n      \"deg\" : 315,\n      \"gust\" : 4.56\n    },\n    \"visibility\" : 10000,\n    \"pop\" : 0,\n    \"sys\" : {\n      \"pod\" : \"n\"\n    },\n    \"dt_txt\" : \"2024-11-30 18:00:00\"\n  } ],\n  \"city\" : {\n    \"id\" : 478640,\n    \"name\" : \"Urozhaynoye\",\n    \"coord\" : {\n      \"lat\" : 45,\n      \"lon\" : 45\n    },\n    \"country\" : \"RU\",\n    \"population\" : 4215,\n    \"timezone\" : 10800,\n    \"sunrise\" : 1732507870,\n    \"sunset\" : 1732541000\n  }\n}",
+                    "Batch Size": "1",
+                    "Unique FlowFiles": "false",
+                    "Data Format": "Text"
+                },
+                "propertyDescriptors": {
+                    "character-set": {
+                        "name": "character-set",
+                        "displayName": "Character Set",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "File Size": {
+                        "name": "File Size",
+                        "displayName": "File Size",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "mime-type": {
+                        "name": "mime-type",
+                        "displayName": "Mime Type",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "generate-ff-custom-text": {
+                        "name": "generate-ff-custom-text",
+                        "displayName": "Custom Text",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Batch Size": {
+                        "name": "Batch Size",
+                        "displayName": "Batch Size",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Unique FlowFiles": {
+                        "name": "Unique FlowFiles",
+                        "displayName": "Unique FlowFiles",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Data Format": {
+                        "name": "Data Format",
+                        "displayName": "Data Format",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    }
+                },
+                "style": {},
+                "schedulingPeriod": "1 min",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 0,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [],
                 "scheduledState": "ENABLED",
                 "retryCount": 10,
                 "retriedRelationships": [],
@@ -315,24 +1205,60 @@
         "outputPorts": [],
         "connections": [
             {
-                "identifier": "a11e2e8c-5140-30ed-a3bc-f467f5a5be9b",
-                "instanceIdentifier": "01931001-fcf0-1446-9ca7-53c3fdb1ae8a",
+                "identifier": "25a8da7b-2c09-33cf-bebf-b2fdebe89f93",
+                "instanceIdentifier": "0193102a-fcf0-1446-a94d-5eba772ec0a4",
                 "name": "",
                 "source": {
-                    "id": "b1d250b7-d221-3754-8531-b737720f2bb5",
+                    "id": "fdb81092-3455-3a33-a1cc-3c34f0e0b060",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "Attribute: City, Lat, Lon",
+                    "comments": "",
+                    "instanceIdentifier": "01931028-fcf0-1446-ccf6-491920142e60"
+                },
+                "destination": {
+                    "id": "d2587417-3347-3787-8175-8d55d35c1a8a",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "Get list items",
+                    "comments": "",
+                    "instanceIdentifier": "01931020-fcf0-1446-6de6-b580b3856fd6"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                    "matched"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
+                "identifier": "2ee8874b-3bd0-3209-9553-1d6c110dc295",
+                "instanceIdentifier": "01931042-fcf0-1446-28a2-cf003c57e2b9",
+                "name": "",
+                "source": {
+                    "id": "eefe5f64-fb4d-3b22-a45b-35be31277a74",
                     "type": "PROCESSOR",
                     "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
                     "name": "PutInfluxDatabase_2",
                     "comments": "",
-                    "instanceIdentifier": "64421031-0193-1000-cb3e-cb376951b227"
+                    "instanceIdentifier": "0193103b-fcf0-1446-d449-929ac2225646"
                 },
                 "destination": {
-                    "id": "0a30061a-cc67-357f-adb5-387a5e04b49c",
+                    "id": "412f173a-6f45-3a11-bef9-3967d431c517",
                     "type": "PROCESSOR",
                     "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
                     "name": "LogMessage",
                     "comments": "",
-                    "instanceIdentifier": "01931000-fcf0-1446-259e-6f351f8baef6"
+                    "instanceIdentifier": "01931041-fcf0-1446-4c80-e056a0eef96a"
                 },
                 "labelIndex": 1,
                 "zIndex": 0,
@@ -387,6 +1313,332 @@
                 "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
             },
             {
+                "identifier": "4f2ad916-cedd-34f2-8766-5313fcfa2d98",
+                "instanceIdentifier": "0193103c-fcf0-1446-8623-a273ffc6564b",
+                "name": "",
+                "source": {
+                    "id": "a27a91c5-108e-35d9-ad7d-f7924dc9a3b7",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "ReplaceText",
+                    "comments": "",
+                    "instanceIdentifier": "01931010-fcf0-1446-6191-609728e537d2"
+                },
+                "destination": {
+                    "id": "eefe5f64-fb4d-3b22-a45b-35be31277a74",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "PutInfluxDatabase_2",
+                    "comments": "",
+                    "instanceIdentifier": "0193103b-fcf0-1446-d449-929ac2225646"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                    "success"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
+                "identifier": "559badfb-909e-30a5-b591-c13184b3d935",
+                "instanceIdentifier": "0193103f-fcf0-1446-b546-e1732f5053f2",
+                "name": "",
+                "source": {
+                    "id": "eefe5f64-fb4d-3b22-a45b-35be31277a74",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "PutInfluxDatabase_2",
+                    "comments": "",
+                    "instanceIdentifier": "0193103b-fcf0-1446-d449-929ac2225646"
+                },
+                "destination": {
+                    "id": "30e13f18-92eb-3d40-9aa7-4b22f1c45e15",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "LogMessage",
+                    "comments": "",
+                    "instanceIdentifier": "0193103e-fcf0-1446-d56a-133138b37b0b"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                    "failure",
+                    "failure-max-size",
+                    "retry"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
+                "identifier": "cc6e17f3-d859-38ab-9880-bbfdc6260d5e",
+                "instanceIdentifier": "01931029-fcf0-1446-8654-9120022a1b99",
+                "name": "",
+                "source": {
+                    "id": "c15f3d6f-da65-317d-905c-530502bd8685",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "Test: OpenWeatherApi return data",
+                    "comments": "",
+                    "instanceIdentifier": "0193100b-fcf0-1446-14db-76d6895fe640"
+                },
+                "destination": {
+                    "id": "fdb81092-3455-3a33-a1cc-3c34f0e0b060",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "Attribute: City, Lat, Lon",
+                    "comments": "",
+                    "instanceIdentifier": "01931028-fcf0-1446-ccf6-491920142e60"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                    "success"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
+                "identifier": "4edba1b2-6b50-3f24-bb2a-00d27713bc8b",
+                "instanceIdentifier": "01931011-fcf0-1446-948e-55a54ab1b989",
+                "name": "",
+                "source": {
+                    "id": "780cecfa-dfdb-31e4-8605-260ee928e782",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "EvaluateJsonPath",
+                    "comments": "",
+                    "instanceIdentifier": "0193100c-fcf0-1446-e3bc-a72e3bb5eef7"
+                },
+                "destination": {
+                    "id": "a27a91c5-108e-35d9-ad7d-f7924dc9a3b7",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "ReplaceText",
+                    "comments": "",
+                    "instanceIdentifier": "01931010-fcf0-1446-6191-609728e537d2"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                    "matched"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
+                "identifier": "b2c0b43e-9c37-3c97-99ad-567c50e98c7e",
+                "instanceIdentifier": "01931039-fcf0-1446-2a49-9e08980ac4f0",
+                "name": "",
+                "source": {
+                    "id": "a27a91c5-108e-35d9-ad7d-f7924dc9a3b7",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "ReplaceText",
+                    "comments": "",
+                    "instanceIdentifier": "01931010-fcf0-1446-6191-609728e537d2"
+                },
+                "destination": {
+                    "id": "dcd53f6c-8a0b-3b27-8dc9-08c5aea3d237",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "LogMessage",
+                    "comments": "",
+                    "instanceIdentifier": "01931013-fcf0-1446-4b34-ebeb2675ec3d"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                    "failure"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
+                "identifier": "687ca378-cb1b-3c75-90db-c5b82865d1ec",
+                "instanceIdentifier": "01931023-fcf0-1446-718a-96b569d22ba5",
+                "name": "",
+                "source": {
+                    "id": "d2587417-3347-3787-8175-8d55d35c1a8a",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "Get list items",
+                    "comments": "",
+                    "instanceIdentifier": "01931020-fcf0-1446-6de6-b580b3856fd6"
+                },
+                "destination": {
+                    "id": "dcd53f6c-8a0b-3b27-8dc9-08c5aea3d237",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "LogMessage",
+                    "comments": "",
+                    "instanceIdentifier": "01931013-fcf0-1446-4b34-ebeb2675ec3d"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                    "failure"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
+                "identifier": "a11e2e8c-5140-30ed-a3bc-f467f5a5be9b",
+                "instanceIdentifier": "01931001-fcf0-1446-9ca7-53c3fdb1ae8a",
+                "name": "",
+                "source": {
+                    "id": "b1d250b7-d221-3754-8531-b737720f2bb5",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "PutInfluxDatabase_2",
+                    "comments": "",
+                    "instanceIdentifier": "64421031-0193-1000-cb3e-cb376951b227"
+                },
+                "destination": {
+                    "id": "0a30061a-cc67-357f-adb5-387a5e04b49c",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "LogMessage",
+                    "comments": "",
+                    "instanceIdentifier": "01931000-fcf0-1446-259e-6f351f8baef6"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                    "success"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
+                "identifier": "20418be5-2d0c-3e4d-a56b-e5d9d5e34e31",
+                "instanceIdentifier": "01931022-fcf0-1446-ffee-acebe063d12b",
+                "name": "",
+                "source": {
+                    "id": "d2587417-3347-3787-8175-8d55d35c1a8a",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "Get list items",
+                    "comments": "",
+                    "instanceIdentifier": "01931020-fcf0-1446-6de6-b580b3856fd6"
+                },
+                "destination": {
+                    "id": "780cecfa-dfdb-31e4-8605-260ee928e782",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "EvaluateJsonPath",
+                    "comments": "",
+                    "instanceIdentifier": "0193100c-fcf0-1446-e3bc-a72e3bb5eef7"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                    "split"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
+                "identifier": "5f3f3433-fca2-32c1-b593-9209b6a1615f",
+                "instanceIdentifier": "01931009-fcf0-1446-8706-8e019a1da6bb",
+                "name": "",
+                "source": {
+                    "id": "715d51ac-bd15-36f4-a659-9cbda97ec410",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "GetHTTP",
+                    "comments": "",
+                    "instanceIdentifier": "01931008-fcf0-1446-0e0d-90cddfcea71d"
+                },
+                "destination": {
+                    "id": "b1d250b7-d221-3754-8531-b737720f2bb5",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "PutInfluxDatabase_2",
+                    "comments": "",
+                    "instanceIdentifier": "64421031-0193-1000-cb3e-cb376951b227"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                    "success"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
                 "identifier": "25c45ef3-1cb8-3035-812e-804ce4469460",
                 "instanceIdentifier": "644713b1-0193-1000-a28f-72fad8cef691",
                 "name": "",
@@ -412,6 +1664,79 @@
                     "failure",
                     "failure-max-size",
                     "retry"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
+                "identifier": "fb7585e1-a1b2-3db9-b7df-26fb0c34dfe8",
+                "instanceIdentifier": "0193102d-fcf0-1446-fd87-875310b834d5",
+                "name": "",
+                "source": {
+                    "id": "fdb81092-3455-3a33-a1cc-3c34f0e0b060",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "Attribute: City, Lat, Lon",
+                    "comments": "",
+                    "instanceIdentifier": "01931028-fcf0-1446-ccf6-491920142e60"
+                },
+                "destination": {
+                    "id": "dcd53f6c-8a0b-3b27-8dc9-08c5aea3d237",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "LogMessage",
+                    "comments": "",
+                    "instanceIdentifier": "01931013-fcf0-1446-4b34-ebeb2675ec3d"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                    "failure"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
+                "identifier": "1214a659-e93b-3436-aee9-bcedeb66d7bb",
+                "instanceIdentifier": "01931014-fcf0-1446-2ea4-5754b0dadb2c",
+                "name": "",
+                "source": {
+                    "id": "780cecfa-dfdb-31e4-8605-260ee928e782",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "EvaluateJsonPath",
+                    "comments": "",
+                    "instanceIdentifier": "0193100c-fcf0-1446-e3bc-a72e3bb5eef7"
+                },
+                "destination": {
+                    "id": "dcd53f6c-8a0b-3b27-8dc9-08c5aea3d237",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "LogMessage",
+                    "comments": "",
+                    "instanceIdentifier": "01931013-fcf0-1446-4b34-ebeb2675ec3d"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                    "failure",
+                    "unmatched"
                 ],
                 "backPressureObjectThreshold": 10000,
                 "backPressureDataSizeThreshold": "1 GB",
