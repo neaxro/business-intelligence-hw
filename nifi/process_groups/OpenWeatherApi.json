@@ -1,1 +1,516 @@
-{"flowContents":{"identifier":"e3cd520f-d0c9-3a05-8919-47abf58aef24","instanceIdentifier":"6441b348-0193-1000-6c43-59622e8f6c7e","name":"OpenWeatherApi","comments":"","position":{"x":848.0,"y":-8.0},"processGroups":[],"remoteProcessGroups":[],"processors":[{"identifier":"b1d250b7-d221-3754-8531-b737720f2bb5","instanceIdentifier":"64421031-0193-1000-cb3e-cb376951b227","name":"PutInfluxDatabase_2","comments":"","position":{"x":632.0,"y":-168.0},"type":"org.influxdata.nifi.processors.PutInfluxDatabase_2","bundle":{"group":"org.influxdata.nifi","artifact":"nifi-influx-database-nar","version":"1.30.0"},"properties":{"influxdb-charset":"UTF-8","influxdb-service":"d0f64019-6dbf-3f2d-a7a4-6221089a86f0","influxdb-write-precision":"MS","influxdb-log-level":"NONE","influxdb-enable-gzip":"false","influxdb-org":"bihw","influxdb-bucket":"bihwb","influxdb-max-records-size":"256 MB"},"propertyDescriptors":{"influxdb-charset":{"name":"influxdb-charset","displayName":"Character Set","identifiesControllerService":false,"sensitive":false},"influxdb-service":{"name":"influxdb-service","displayName":"InfluxDB Controller Service","identifiesControllerService":true,"sensitive":false},"influxdb-write-precision":{"name":"influxdb-write-precision","displayName":"Timestamp precision","identifiesControllerService":false,"sensitive":false},"influxdb-log-level":{"name":"influxdb-log-level","displayName":"Log Level","identifiesControllerService":false,"sensitive":false},"influxdb-enable-gzip":{"name":"influxdb-enable-gzip","displayName":"Enable gzip compression","identifiesControllerService":false,"sensitive":false},"influxdb-org":{"name":"influxdb-org","displayName":"Organization","identifiesControllerService":false,"sensitive":false},"influxdb-bucket":{"name":"influxdb-bucket","displayName":"Bucket","identifiesControllerService":false,"sensitive":false},"influxdb-max-records-size":{"name":"influxdb-max-records-size","displayName":"Max size of records","identifiesControllerService":false,"sensitive":false}},"style":{},"schedulingPeriod":"0 sec","schedulingStrategy":"TIMER_DRIVEN","executionNode":"ALL","penaltyDuration":"30 sec","yieldDuration":"1 sec","bulletinLevel":"WARN","runDurationMillis":0,"concurrentlySchedulableTaskCount":1,"autoTerminatedRelationships":[],"scheduledState":"ENABLED","retryCount":10,"retriedRelationships":[],"backoffMechanism":"PENALIZE_FLOWFILE","maxBackoffPeriod":"10 mins","componentType":"PROCESSOR","groupIdentifier":"e3cd520f-d0c9-3a05-8919-47abf58aef24"},{"identifier":"fcefbed2-bdbe-3d9e-b596-a8f7ce7ac0a2","instanceIdentifier":"6443506c-0193-1000-2e70-ec34f3948a7c","name":"GenerateFlowFile","comments":"","position":{"x":640.0,"y":-432.0},"type":"org.apache.nifi.processors.standard.GenerateFlowFile","bundle":{"group":"org.apache.nifi","artifact":"nifi-standard-nar","version":"1.28.1"},"properties":{"character-set":"UTF-8","File Size":"0B","mime-type":null,"generate-ff-custom-text":"nifiTEST3,location=us-midwest temperature=100 1732556976227\nnifiTEST3,location=us-west temperature=100 1732556976227\n","Batch Size":"1","Unique FlowFiles":"false","Data Format":"Text"},"propertyDescriptors":{"character-set":{"name":"character-set","displayName":"Character Set","identifiesControllerService":false,"sensitive":false},"File Size":{"name":"File Size","displayName":"File Size","identifiesControllerService":false,"sensitive":false},"mime-type":{"name":"mime-type","displayName":"Mime Type","identifiesControllerService":false,"sensitive":false},"generate-ff-custom-text":{"name":"generate-ff-custom-text","displayName":"Custom Text","identifiesControllerService":false,"sensitive":false},"Batch Size":{"name":"Batch Size","displayName":"Batch Size","identifiesControllerService":false,"sensitive":false},"Unique FlowFiles":{"name":"Unique FlowFiles","displayName":"Unique FlowFiles","identifiesControllerService":false,"sensitive":false},"Data Format":{"name":"Data Format","displayName":"Data Format","identifiesControllerService":false,"sensitive":false}},"style":{},"schedulingPeriod":"1 min","schedulingStrategy":"TIMER_DRIVEN","executionNode":"ALL","penaltyDuration":"30 sec","yieldDuration":"1 sec","bulletinLevel":"WARN","runDurationMillis":0,"concurrentlySchedulableTaskCount":1,"autoTerminatedRelationships":[],"scheduledState":"ENABLED","retryCount":10,"retriedRelationships":[],"backoffMechanism":"PENALIZE_FLOWFILE","maxBackoffPeriod":"10 mins","componentType":"PROCESSOR","groupIdentifier":"e3cd520f-d0c9-3a05-8919-47abf58aef24"},{"identifier":"0a30061a-cc67-357f-adb5-387a5e04b49c","instanceIdentifier":"01931000-fcf0-1446-259e-6f351f8baef6","name":"LogMessage","comments":"","position":{"x":960.0,"y":120.0},"type":"org.apache.nifi.processors.standard.LogMessage","bundle":{"group":"org.apache.nifi","artifact":"nifi-standard-nar","version":"1.28.1"},"properties":{"log-message":null,"log-level":"info","log-prefix":null},"propertyDescriptors":{"log-message":{"name":"log-message","displayName":"Log message","identifiesControllerService":false,"sensitive":false},"log-level":{"name":"log-level","displayName":"Log Level","identifiesControllerService":false,"sensitive":false},"log-prefix":{"name":"log-prefix","displayName":"Log prefix","identifiesControllerService":false,"sensitive":false}},"style":{},"schedulingPeriod":"0 sec","schedulingStrategy":"TIMER_DRIVEN","executionNode":"ALL","penaltyDuration":"30 sec","yieldDuration":"1 sec","bulletinLevel":"WARN","runDurationMillis":25,"concurrentlySchedulableTaskCount":1,"autoTerminatedRelationships":["success"],"scheduledState":"ENABLED","retryCount":10,"retriedRelationships":[],"backoffMechanism":"PENALIZE_FLOWFILE","maxBackoffPeriod":"10 mins","componentType":"PROCESSOR","groupIdentifier":"e3cd520f-d0c9-3a05-8919-47abf58aef24"},{"identifier":"cef00f9d-6e16-38bc-981b-1a6ccf211a3f","instanceIdentifier":"6446fcf0-0193-1000-0428-6881ca2218f2","name":"LogMessage","comments":"","position":{"x":456.0,"y":104.0},"type":"org.apache.nifi.processors.standard.LogMessage","bundle":{"group":"org.apache.nifi","artifact":"nifi-standard-nar","version":"1.28.1"},"properties":{"log-message":null,"log-level":"info","log-prefix":null},"propertyDescriptors":{"log-message":{"name":"log-message","displayName":"Log message","identifiesControllerService":false,"sensitive":false},"log-level":{"name":"log-level","displayName":"Log Level","identifiesControllerService":false,"sensitive":false},"log-prefix":{"name":"log-prefix","displayName":"Log prefix","identifiesControllerService":false,"sensitive":false}},"style":{},"schedulingPeriod":"0 sec","schedulingStrategy":"TIMER_DRIVEN","executionNode":"ALL","penaltyDuration":"30 sec","yieldDuration":"1 sec","bulletinLevel":"WARN","runDurationMillis":25,"concurrentlySchedulableTaskCount":1,"autoTerminatedRelationships":["success"],"scheduledState":"ENABLED","retryCount":10,"retriedRelationships":[],"backoffMechanism":"PENALIZE_FLOWFILE","maxBackoffPeriod":"10 mins","componentType":"PROCESSOR","groupIdentifier":"e3cd520f-d0c9-3a05-8919-47abf58aef24"}],"inputPorts":[],"outputPorts":[],"connections":[{"identifier":"a11e2e8c-5140-30ed-a3bc-f467f5a5be9b","instanceIdentifier":"01931001-fcf0-1446-9ca7-53c3fdb1ae8a","name":"","source":{"id":"b1d250b7-d221-3754-8531-b737720f2bb5","type":"PROCESSOR","groupId":"e3cd520f-d0c9-3a05-8919-47abf58aef24","name":"PutInfluxDatabase_2","comments":"","instanceIdentifier":"64421031-0193-1000-cb3e-cb376951b227"},"destination":{"id":"0a30061a-cc67-357f-adb5-387a5e04b49c","type":"PROCESSOR","groupId":"e3cd520f-d0c9-3a05-8919-47abf58aef24","name":"LogMessage","comments":"","instanceIdentifier":"01931000-fcf0-1446-259e-6f351f8baef6"},"labelIndex":1,"zIndex":0,"selectedRelationships":["success"],"backPressureObjectThreshold":10000,"backPressureDataSizeThreshold":"1 GB","flowFileExpiration":"0 sec","prioritizers":[],"bends":[],"loadBalanceStrategy":"DO_NOT_LOAD_BALANCE","partitioningAttribute":"","loadBalanceCompression":"DO_NOT_COMPRESS","componentType":"CONNECTION","groupIdentifier":"e3cd520f-d0c9-3a05-8919-47abf58aef24"},{"identifier":"aabf2487-afbc-3c5a-8a41-f56da2c7b74c","instanceIdentifier":"6443934a-0193-1000-9186-64eb4c9a0866","name":"","source":{"id":"fcefbed2-bdbe-3d9e-b596-a8f7ce7ac0a2","type":"PROCESSOR","groupId":"e3cd520f-d0c9-3a05-8919-47abf58aef24","name":"GenerateFlowFile","comments":"","instanceIdentifier":"6443506c-0193-1000-2e70-ec34f3948a7c"},"destination":{"id":"b1d250b7-d221-3754-8531-b737720f2bb5","type":"PROCESSOR","groupId":"e3cd520f-d0c9-3a05-8919-47abf58aef24","name":"PutInfluxDatabase_2","comments":"","instanceIdentifier":"64421031-0193-1000-cb3e-cb376951b227"},"labelIndex":1,"zIndex":0,"selectedRelationships":["success"],"backPressureObjectThreshold":10000,"backPressureDataSizeThreshold":"1 GB","flowFileExpiration":"0 sec","prioritizers":[],"bends":[],"loadBalanceStrategy":"DO_NOT_LOAD_BALANCE","partitioningAttribute":"","loadBalanceCompression":"DO_NOT_COMPRESS","componentType":"CONNECTION","groupIdentifier":"e3cd520f-d0c9-3a05-8919-47abf58aef24"},{"identifier":"25c45ef3-1cb8-3035-812e-804ce4469460","instanceIdentifier":"644713b1-0193-1000-a28f-72fad8cef691","name":"","source":{"id":"b1d250b7-d221-3754-8531-b737720f2bb5","type":"PROCESSOR","groupId":"e3cd520f-d0c9-3a05-8919-47abf58aef24","name":"PutInfluxDatabase_2","comments":"","instanceIdentifier":"64421031-0193-1000-cb3e-cb376951b227"},"destination":{"id":"cef00f9d-6e16-38bc-981b-1a6ccf211a3f","type":"PROCESSOR","groupId":"e3cd520f-d0c9-3a05-8919-47abf58aef24","name":"LogMessage","comments":"","instanceIdentifier":"6446fcf0-0193-1000-0428-6881ca2218f2"},"labelIndex":1,"zIndex":0,"selectedRelationships":["failure","failure-max-size","retry"],"backPressureObjectThreshold":10000,"backPressureDataSizeThreshold":"1 GB","flowFileExpiration":"0 sec","prioritizers":[],"bends":[],"loadBalanceStrategy":"DO_NOT_LOAD_BALANCE","partitioningAttribute":"","loadBalanceCompression":"DO_NOT_COMPRESS","componentType":"CONNECTION","groupIdentifier":"e3cd520f-d0c9-3a05-8919-47abf58aef24"}],"labels":[],"funnels":[],"controllerServices":[{"identifier":"d0f64019-6dbf-3f2d-a7a4-6221089a86f0","instanceIdentifier":"6445774f-0193-1000-4604-fece933d283b","name":"StandardInfluxDatabaseService_2","comments":"","type":"org.influxdata.nifi.services.StandardInfluxDatabaseService_2","bundle":{"group":"org.influxdata.nifi","artifact":"nifi-influx-database-nar","version":"1.30.0"},"properties":{"influxdb-client-type":null,"influxdb-url":"http://influxdb:8086","inluxdb-ssl":null,"inluxdb-ssl-auth":"REQUIRED","influxdb-connection-timeout":"0 seconds"},"propertyDescriptors":{"influxdb-client-type":{"name":"influxdb-client-type","displayName":"InfluxDB Client type","identifiesControllerService":false,"sensitive":false},"influxdb-url":{"name":"influxdb-url","displayName":"InfluxDB connection URL","identifiesControllerService":false,"sensitive":false},"inluxdb-ssl":{"name":"inluxdb-ssl","displayName":"SSL Context Service","identifiesControllerService":true,"sensitive":false},"inluxdb-ssl-auth":{"name":"inluxdb-ssl-auth","displayName":"Client Auth","identifiesControllerService":false,"sensitive":false},"influxdb-token":{"name":"influxdb-token","displayName":"InfluxDB Access Token","identifiesControllerService":false,"sensitive":true},"influxdb-connection-timeout":{"name":"influxdb-connection-timeout","displayName":"InfluxDB Max Connection Time Out (seconds)","identifiesControllerService":false,"sensitive":false}},"controllerServiceApis":[{"type":"org.influxdata.nifi.services.InfluxDatabaseService_2","bundle":{"group":"org.influxdata.nifi","artifact":"nifi-influx-database-nar","version":"1.30.0"}}],"scheduledState":"DISABLED","bulletinLevel":"WARN","componentType":"CONTROLLER_SERVICE","groupIdentifier":"e3cd520f-d0c9-3a05-8919-47abf58aef24"}],"variables":{},"defaultFlowFileExpiration":"0 sec","defaultBackPressureObjectThreshold":10000,"defaultBackPressureDataSizeThreshold":"1 GB","flowFileConcurrency":"UNBOUNDED","flowFileOutboundPolicy":"STREAM_WHEN_AVAILABLE","componentType":"PROCESS_GROUP"},"externalControllerServices":{},"parameterContexts":{},"flowEncodingVersion":"1.0","parameterProviders":{},"latest":false}
+{
+    "flowContents": {
+        "identifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+        "instanceIdentifier": "6441b348-0193-1000-6c43-59622e8f6c7e",
+        "name": "OpenWeatherApi",
+        "comments": "",
+        "position": {
+            "x": 848.0,
+            "y": -8.0
+        },
+        "processGroups": [],
+        "remoteProcessGroups": [],
+        "processors": [
+            {
+                "identifier": "b1d250b7-d221-3754-8531-b737720f2bb5",
+                "instanceIdentifier": "64421031-0193-1000-cb3e-cb376951b227",
+                "name": "PutInfluxDatabase_2",
+                "comments": "",
+                "position": {
+                    "x": 632.0,
+                    "y": -168.0
+                },
+                "type": "org.influxdata.nifi.processors.PutInfluxDatabase_2",
+                "bundle": {
+                    "group": "org.influxdata.nifi",
+                    "artifact": "nifi-influx-database-nar",
+                    "version": "1.30.0"
+                },
+                "properties": {
+                    "influxdb-charset": "UTF-8",
+                    "influxdb-service": "d0f64019-6dbf-3f2d-a7a4-6221089a86f0",
+                    "influxdb-write-precision": "MS",
+                    "influxdb-log-level": "NONE",
+                    "influxdb-enable-gzip": "false",
+                    "influxdb-org": "bihw",
+                    "influxdb-bucket": "bihwb",
+                    "influxdb-max-records-size": "256 MB"
+                },
+                "propertyDescriptors": {
+                    "influxdb-charset": {
+                        "name": "influxdb-charset",
+                        "displayName": "Character Set",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "influxdb-service": {
+                        "name": "influxdb-service",
+                        "displayName": "InfluxDB Controller Service",
+                        "identifiesControllerService": true,
+                        "sensitive": false
+                    },
+                    "influxdb-write-precision": {
+                        "name": "influxdb-write-precision",
+                        "displayName": "Timestamp precision",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "influxdb-log-level": {
+                        "name": "influxdb-log-level",
+                        "displayName": "Log Level",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "influxdb-enable-gzip": {
+                        "name": "influxdb-enable-gzip",
+                        "displayName": "Enable gzip compression",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "influxdb-org": {
+                        "name": "influxdb-org",
+                        "displayName": "Organization",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "influxdb-bucket": {
+                        "name": "influxdb-bucket",
+                        "displayName": "Bucket",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "influxdb-max-records-size": {
+                        "name": "influxdb-max-records-size",
+                        "displayName": "Max size of records",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 0,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
+                "identifier": "fcefbed2-bdbe-3d9e-b596-a8f7ce7ac0a2",
+                "instanceIdentifier": "6443506c-0193-1000-2e70-ec34f3948a7c",
+                "name": "GenerateFlowFile",
+                "comments": "",
+                "position": {
+                    "x": 640.0,
+                    "y": -432.0
+                },
+                "type": "org.apache.nifi.processors.standard.GenerateFlowFile",
+                "bundle": {
+                    "group": "org.apache.nifi",
+                    "artifact": "nifi-standard-nar",
+                    "version": "1.28.1"
+                },
+                "properties": {
+                    "character-set": "UTF-8",
+                    "File Size": "0B",
+                    "mime-type": null,
+                    "generate-ff-custom-text": "nifiTEST3,location=us-midwest temperature=100 1732556976227\nnifiTEST3,location=us-west temperature=100 1732556976227\n",
+                    "Batch Size": "1",
+                    "Unique FlowFiles": "false",
+                    "Data Format": "Text"
+                },
+                "propertyDescriptors": {
+                    "character-set": {
+                        "name": "character-set",
+                        "displayName": "Character Set",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "File Size": {
+                        "name": "File Size",
+                        "displayName": "File Size",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "mime-type": {
+                        "name": "mime-type",
+                        "displayName": "Mime Type",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "generate-ff-custom-text": {
+                        "name": "generate-ff-custom-text",
+                        "displayName": "Custom Text",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Batch Size": {
+                        "name": "Batch Size",
+                        "displayName": "Batch Size",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Unique FlowFiles": {
+                        "name": "Unique FlowFiles",
+                        "displayName": "Unique FlowFiles",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "Data Format": {
+                        "name": "Data Format",
+                        "displayName": "Data Format",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    }
+                },
+                "style": {},
+                "schedulingPeriod": "1 min",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 0,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
+                "identifier": "0a30061a-cc67-357f-adb5-387a5e04b49c",
+                "instanceIdentifier": "01931000-fcf0-1446-259e-6f351f8baef6",
+                "name": "LogMessage",
+                "comments": "",
+                "position": {
+                    "x": 960.0,
+                    "y": 120.0
+                },
+                "type": "org.apache.nifi.processors.standard.LogMessage",
+                "bundle": {
+                    "group": "org.apache.nifi",
+                    "artifact": "nifi-standard-nar",
+                    "version": "1.28.1"
+                },
+                "properties": {
+                    "log-message": null,
+                    "log-level": "info",
+                    "log-prefix": null
+                },
+                "propertyDescriptors": {
+                    "log-message": {
+                        "name": "log-message",
+                        "displayName": "Log message",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "log-level": {
+                        "name": "log-level",
+                        "displayName": "Log Level",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "log-prefix": {
+                        "name": "log-prefix",
+                        "displayName": "Log prefix",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 25,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [
+                    "success"
+                ],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
+                "identifier": "cef00f9d-6e16-38bc-981b-1a6ccf211a3f",
+                "instanceIdentifier": "6446fcf0-0193-1000-0428-6881ca2218f2",
+                "name": "LogMessage",
+                "comments": "",
+                "position": {
+                    "x": 456.0,
+                    "y": 104.0
+                },
+                "type": "org.apache.nifi.processors.standard.LogMessage",
+                "bundle": {
+                    "group": "org.apache.nifi",
+                    "artifact": "nifi-standard-nar",
+                    "version": "1.28.1"
+                },
+                "properties": {
+                    "log-message": null,
+                    "log-level": "info",
+                    "log-prefix": null
+                },
+                "propertyDescriptors": {
+                    "log-message": {
+                        "name": "log-message",
+                        "displayName": "Log message",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "log-level": {
+                        "name": "log-level",
+                        "displayName": "Log Level",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "log-prefix": {
+                        "name": "log-prefix",
+                        "displayName": "Log prefix",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    }
+                },
+                "style": {},
+                "schedulingPeriod": "0 sec",
+                "schedulingStrategy": "TIMER_DRIVEN",
+                "executionNode": "ALL",
+                "penaltyDuration": "30 sec",
+                "yieldDuration": "1 sec",
+                "bulletinLevel": "WARN",
+                "runDurationMillis": 25,
+                "concurrentlySchedulableTaskCount": 1,
+                "autoTerminatedRelationships": [
+                    "success"
+                ],
+                "scheduledState": "ENABLED",
+                "retryCount": 10,
+                "retriedRelationships": [],
+                "backoffMechanism": "PENALIZE_FLOWFILE",
+                "maxBackoffPeriod": "10 mins",
+                "componentType": "PROCESSOR",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            }
+        ],
+        "inputPorts": [],
+        "outputPorts": [],
+        "connections": [
+            {
+                "identifier": "a11e2e8c-5140-30ed-a3bc-f467f5a5be9b",
+                "instanceIdentifier": "01931001-fcf0-1446-9ca7-53c3fdb1ae8a",
+                "name": "",
+                "source": {
+                    "id": "b1d250b7-d221-3754-8531-b737720f2bb5",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "PutInfluxDatabase_2",
+                    "comments": "",
+                    "instanceIdentifier": "64421031-0193-1000-cb3e-cb376951b227"
+                },
+                "destination": {
+                    "id": "0a30061a-cc67-357f-adb5-387a5e04b49c",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "LogMessage",
+                    "comments": "",
+                    "instanceIdentifier": "01931000-fcf0-1446-259e-6f351f8baef6"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                    "success"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
+                "identifier": "aabf2487-afbc-3c5a-8a41-f56da2c7b74c",
+                "instanceIdentifier": "6443934a-0193-1000-9186-64eb4c9a0866",
+                "name": "",
+                "source": {
+                    "id": "fcefbed2-bdbe-3d9e-b596-a8f7ce7ac0a2",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "GenerateFlowFile",
+                    "comments": "",
+                    "instanceIdentifier": "6443506c-0193-1000-2e70-ec34f3948a7c"
+                },
+                "destination": {
+                    "id": "b1d250b7-d221-3754-8531-b737720f2bb5",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "PutInfluxDatabase_2",
+                    "comments": "",
+                    "instanceIdentifier": "64421031-0193-1000-cb3e-cb376951b227"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                    "success"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            },
+            {
+                "identifier": "25c45ef3-1cb8-3035-812e-804ce4469460",
+                "instanceIdentifier": "644713b1-0193-1000-a28f-72fad8cef691",
+                "name": "",
+                "source": {
+                    "id": "b1d250b7-d221-3754-8531-b737720f2bb5",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "PutInfluxDatabase_2",
+                    "comments": "",
+                    "instanceIdentifier": "64421031-0193-1000-cb3e-cb376951b227"
+                },
+                "destination": {
+                    "id": "cef00f9d-6e16-38bc-981b-1a6ccf211a3f",
+                    "type": "PROCESSOR",
+                    "groupId": "e3cd520f-d0c9-3a05-8919-47abf58aef24",
+                    "name": "LogMessage",
+                    "comments": "",
+                    "instanceIdentifier": "6446fcf0-0193-1000-0428-6881ca2218f2"
+                },
+                "labelIndex": 1,
+                "zIndex": 0,
+                "selectedRelationships": [
+                    "failure",
+                    "failure-max-size",
+                    "retry"
+                ],
+                "backPressureObjectThreshold": 10000,
+                "backPressureDataSizeThreshold": "1 GB",
+                "flowFileExpiration": "0 sec",
+                "prioritizers": [],
+                "bends": [],
+                "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+                "partitioningAttribute": "",
+                "loadBalanceCompression": "DO_NOT_COMPRESS",
+                "componentType": "CONNECTION",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            }
+        ],
+        "labels": [],
+        "funnels": [],
+        "controllerServices": [
+            {
+                "identifier": "d0f64019-6dbf-3f2d-a7a4-6221089a86f0",
+                "instanceIdentifier": "6445774f-0193-1000-4604-fece933d283b",
+                "name": "StandardInfluxDatabaseService_2",
+                "comments": "",
+                "type": "org.influxdata.nifi.services.StandardInfluxDatabaseService_2",
+                "bundle": {
+                    "group": "org.influxdata.nifi",
+                    "artifact": "nifi-influx-database-nar",
+                    "version": "1.30.0"
+                },
+                "properties": {
+                    "influxdb-client-type": null,
+                    "influxdb-url": "http://influxdb:8086",
+                    "inluxdb-ssl": null,
+                    "inluxdb-ssl-auth": "REQUIRED",
+                    "influxdb-connection-timeout": "0 seconds"
+                },
+                "propertyDescriptors": {
+                    "influxdb-client-type": {
+                        "name": "influxdb-client-type",
+                        "displayName": "InfluxDB Client type",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "influxdb-url": {
+                        "name": "influxdb-url",
+                        "displayName": "InfluxDB connection URL",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "inluxdb-ssl": {
+                        "name": "inluxdb-ssl",
+                        "displayName": "SSL Context Service",
+                        "identifiesControllerService": true,
+                        "sensitive": false
+                    },
+                    "inluxdb-ssl-auth": {
+                        "name": "inluxdb-ssl-auth",
+                        "displayName": "Client Auth",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    },
+                    "influxdb-token": {
+                        "name": "influxdb-token",
+                        "displayName": "InfluxDB Access Token",
+                        "identifiesControllerService": false,
+                        "sensitive": true
+                    },
+                    "influxdb-connection-timeout": {
+                        "name": "influxdb-connection-timeout",
+                        "displayName": "InfluxDB Max Connection Time Out (seconds)",
+                        "identifiesControllerService": false,
+                        "sensitive": false
+                    }
+                },
+                "controllerServiceApis": [
+                    {
+                        "type": "org.influxdata.nifi.services.InfluxDatabaseService_2",
+                        "bundle": {
+                            "group": "org.influxdata.nifi",
+                            "artifact": "nifi-influx-database-nar",
+                            "version": "1.30.0"
+                        }
+                    }
+                ],
+                "scheduledState": "DISABLED",
+                "bulletinLevel": "WARN",
+                "componentType": "CONTROLLER_SERVICE",
+                "groupIdentifier": "e3cd520f-d0c9-3a05-8919-47abf58aef24"
+            }
+        ],
+        "variables": {},
+        "defaultFlowFileExpiration": "0 sec",
+        "defaultBackPressureObjectThreshold": 10000,
+        "defaultBackPressureDataSizeThreshold": "1 GB",
+        "flowFileConcurrency": "UNBOUNDED",
+        "flowFileOutboundPolicy": "STREAM_WHEN_AVAILABLE",
+        "componentType": "PROCESS_GROUP"
+    },
+    "externalControllerServices": {},
+    "parameterContexts": {},
+    "flowEncodingVersion": "1.0",
+    "parameterProviders": {},
+    "latest": false
+}
