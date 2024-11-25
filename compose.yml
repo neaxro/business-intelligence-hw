@@ -19,6 +19,48 @@ services:
       timeout: 60s
       retries: 5
 
+  influxdb:
+    image: influxdb:2
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: admin
+      DOCKER_INFLUXDB_INIT_PASSWORD: pass12345678
+      DOCKER_INFLUXDB_INIT_ORG: bihw
+      DOCKER_INFLUXDB_INIT_BUCKET: bihwb
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: mysecretadmintoken
+      INFLUXDB_DB: bihw
+      INFLUXDB_ADMIN_USER: admin
+      INFLUXDB_ADMIN_PASSWORD: pass12345678
+    ports:
+      - 8086:8086
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8086/ping"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  grafana:
+    image: grafana/grafana:11.3.1
+    container_name: grafana
+    restart: always
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=pass
+    # configs:
+    #   - source: grafana_datasources_config
+    #     target: /etc/grafana/provisioning/datasources/datasource.yaml
+    #   - source: grafana_dashboard_provisioner
+    #     target: /etc/grafana/provisioning/dashboards/main.yaml
+    #   - source: grafana_backend_dashboard
+    #     target: /var/lib/grafana/dashboards/backend.json
+    ports:
+      - 3000:3000
+    depends_on:
+      influxdb:
+        condition: service_healthy
+
+
   # https://localhost:8443/nifi/login
   nifi:
     build:
