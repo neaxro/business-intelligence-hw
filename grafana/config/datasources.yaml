@@ -1,0 +1,34 @@
+apiVersion: 1
+
+datasources:
+  - name: influxdb
+    type: influxdb
+    uid: fe51pk63bx8g0b
+    url: http://influxdb:8086
+    access: proxy
+    isDefault: true
+    jsonData:
+      defaultBucket: bihwb
+      httpMode: POST
+      organization: bihw
+      version: Flux
+    readOnly: false
+    secureJsonData:
+      token: mysecretadmintoken
+
+  - name: mysql
+    type: mysql
+    uid: ae54y4zq8dipse
+    url: mysql:3306
+    user: root
+    access: proxy
+    isDefault: false
+    jsonData:
+      database: bihw
+      connMaxLifetime: 14400
+      maxIdleConns: 100
+      maxIdleConnsAuto: true
+      maxOpenConns: 100
+    readOnly: false
+    secureJsonData:
+      password: pass

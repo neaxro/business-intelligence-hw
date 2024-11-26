@@ -1,0 +1,964 @@
+{
+    "annotations": {
+        "list": [
+            {
+                "builtIn": 1,
+                "datasource": {
+                    "type": "grafana",
+                    "uid": "-- Grafana --"
+                },
+                "enable": true,
+                "hide": true,
+                "iconColor": "rgba(0, 211, 255, 1)",
+                "name": "Annotations & Alerts",
+                "type": "dashboard"
+            }
+        ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": 3,
+    "links": [],
+    "panels": [
+        {
+            "datasource": {
+                "type": "mysql",
+                "uid": "ae54y4zq8dipse"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "thresholds"
+                    },
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        }
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 13,
+                "w": 12,
+                "x": 0,
+                "y": 0
+            },
+            "id": 1,
+            "options": {
+                "basemap": {
+                    "config": {
+                        "showLabels": true,
+                        "theme": "auto"
+                    },
+                    "name": "Layer 0",
+                    "type": "default"
+                },
+                "controls": {
+                    "mouseWheelZoom": true,
+                    "showAttribution": true,
+                    "showDebug": false,
+                    "showMeasure": false,
+                    "showScale": false,
+                    "showZoom": true
+                },
+                "layers": [
+                    {
+                        "config": {
+                            "showLegend": true,
+                            "style": {
+                                "color": {
+                                    "fixed": "dark-green"
+                                },
+                                "opacity": 0.2,
+                                "rotation": {
+                                    "fixed": 0,
+                                    "max": 360,
+                                    "min": -360,
+                                    "mode": "mod"
+                                },
+                                "size": {
+                                    "field": "flight_count",
+                                    "fixed": 5,
+                                    "max": 30,
+                                    "min": 1
+                                },
+                                "symbol": {
+                                    "fixed": "img/icons/marker/circle.svg",
+                                    "mode": "fixed"
+                                },
+                                "symbolAlign": {
+                                    "horizontal": "center",
+                                    "vertical": "center"
+                                },
+                                "text": {
+                                    "fixed": "",
+                                    "mode": "fixed"
+                                },
+                                "textConfig": {
+                                    "fontSize": 12,
+                                    "offsetX": 0,
+                                    "offsetY": 0,
+                                    "textAlign": "center",
+                                    "textBaseline": "middle"
+                                }
+                            }
+                        },
+                        "filterData": {
+                            "id": "byRefId",
+                            "options": "A"
+                        },
+                        "name": "Layer 1",
+                        "tooltip": true,
+                        "type": "markers"
+                    }
+                ],
+                "tooltip": {
+                    "mode": "details"
+                },
+                "view": {
+                    "allLayers": true,
+                    "id": "europe",
+                    "lat": 46,
+                    "lon": 14,
+                    "zoom": 5
+                }
+            },
+            "pluginVersion": "11.3.1",
+            "targets": [
+                {
+                    "dataset": "bihw",
+                    "datasource": {
+                        "type": "mysql",
+                        "uid": "ae54y4zq8dipse"
+                    },
+                    "editorMode": "code",
+                    "format": "table",
+                    "rawQuery": true,
+                    "rawSql": "SELECT\n  a.latitude,\n  a.longitude,\n  a.name AS airport_name,\n  COUNT(r.id) AS flight_count\nFROM\n  bihw.airports a\n  LEFT JOIN bihw.routes r ON a.id = r.source_airport_id\nGROUP BY\n  a.latitude,\n  a.longitude,\n  a.name\nORDER BY\n  flight_count DESC\nLIMIT\n  ${airport_count}\n",
+                    "refId": "A",
+                    "sql": {
+                        "columns": [
+                            {
+                                "parameters": [
+                                    {
+                                        "name": "latitude",
+                                        "type": "functionParameter"
+                                    }
+                                ],
+                                "type": "function"
+                            },
+                            {
+                                "parameters": [
+                                    {
+                                        "name": "longitude",
+                                        "type": "functionParameter"
+                                    }
+                                ],
+                                "type": "function"
+                            }
+                        ],
+                        "groupBy": [
+                            {
+                                "property": {
+                                    "type": "string"
+                                },
+                                "type": "groupBy"
+                            }
+                        ],
+                        "limit": 50
+                    },
+                    "table": "airports"
+                }
+            ],
+            "title": "Airport Traffic Map",
+            "type": "geomap"
+        },
+        {
+            "datasource": {
+                "type": "mysql",
+                "uid": "ae54y4zq8dipse"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "thresholds"
+                    },
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        }
+                    },
+                    "mappings": [],
+                    "noValue": "-",
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "super-light-green",
+                                "value": null
+                            },
+                            {
+                                "color": "green",
+                                "value": 20
+                            },
+                            {
+                                "color": "yellow",
+                                "value": 50
+                            },
+                            {
+                                "color": "orange",
+                                "value": 100
+                            },
+                            {
+                                "color": "dark-orange",
+                                "value": 250
+                            },
+                            {
+                                "color": "light-blue",
+                                "value": 500
+                            },
+                            {
+                                "color": "red",
+                                "value": 1500
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 13,
+                "w": 12,
+                "x": 12,
+                "y": 0
+            },
+            "id": 7,
+            "options": {
+                "basemap": {
+                    "config": {},
+                    "name": "Layer 0",
+                    "type": "default"
+                },
+                "controls": {
+                    "mouseWheelZoom": true,
+                    "showAttribution": true,
+                    "showDebug": false,
+                    "showMeasure": false,
+                    "showScale": false,
+                    "showZoom": true
+                },
+                "layers": [
+                    {
+                        "config": {
+                            "showLegend": true,
+                            "style": {
+                                "color": {
+                                    "field": "airport_count",
+                                    "fixed": "dark-green"
+                                },
+                                "opacity": 0.2,
+                                "rotation": {
+                                    "fixed": 0,
+                                    "max": 360,
+                                    "min": -360,
+                                    "mode": "mod"
+                                },
+                                "size": {
+                                    "field": "airport_count",
+                                    "fixed": 5,
+                                    "max": 50,
+                                    "min": 1
+                                },
+                                "symbol": {
+                                    "fixed": "img/icons/marker/circle.svg",
+                                    "mode": "fixed"
+                                },
+                                "symbolAlign": {
+                                    "horizontal": "center",
+                                    "vertical": "center"
+                                },
+                                "text": {
+                                    "field": "airport_count",
+                                    "fixed": "",
+                                    "mode": "field"
+                                },
+                                "textConfig": {
+                                    "fontSize": 12,
+                                    "offsetX": 0,
+                                    "offsetY": 0,
+                                    "textAlign": "center",
+                                    "textBaseline": "middle"
+                                }
+                            }
+                        },
+                        "location": {
+                            "gazetteer": "public/gazetteer/countries.json",
+                            "lookup": "country",
+                            "mode": "lookup"
+                        },
+                        "name": "Layer 1",
+                        "tooltip": true,
+                        "type": "markers"
+                    }
+                ],
+                "tooltip": {
+                    "mode": "details"
+                },
+                "view": {
+                    "allLayers": true,
+                    "id": "europe",
+                    "lat": 46,
+                    "lon": 14,
+                    "zoom": 4
+                }
+            },
+            "pluginVersion": "11.3.1",
+            "targets": [
+                {
+                    "dataset": "bihw",
+                    "datasource": {
+                        "type": "mysql",
+                        "uid": "ae54y4zq8dipse"
+                    },
+                    "editorMode": "code",
+                    "format": "table",
+                    "rawQuery": true,
+                    "rawSql": "SELECT \n    a.country AS country,  -- Ország\n    COUNT(*) AS airport_count  -- Repülőterek száma\nFROM \n    bihw.airports a\nGROUP BY \n    a.country\nORDER BY \n    airport_count DESC\nLIMIT ${airport_count}\n",
+                    "refId": "A",
+                    "sql": {
+                        "columns": [
+                            {
+                                "parameters": [],
+                                "type": "function"
+                            }
+                        ],
+                        "groupBy": [
+                            {
+                                "property": {
+                                    "type": "string"
+                                },
+                                "type": "groupBy"
+                            }
+                        ],
+                        "limit": 50
+                    }
+                }
+            ],
+            "title": "Airport count by country",
+            "type": "geomap"
+        },
+        {
+            "datasource": {
+                "type": "mysql",
+                "uid": "ae54y4zq8dipse"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "palette-classic"
+                    },
+                    "custom": {
+                        "axisBorderShow": false,
+                        "axisCenteredZero": false,
+                        "axisColorMode": "text",
+                        "axisGridShow": true,
+                        "axisLabel": "Route count",
+                        "axisPlacement": "auto",
+                        "fillOpacity": 58,
+                        "gradientMode": "opacity",
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        },
+                        "lineWidth": 2,
+                        "scaleDistribution": {
+                            "type": "linear"
+                        },
+                        "thresholdsStyle": {
+                            "mode": "off"
+                        }
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 13,
+                "w": 12,
+                "x": 0,
+                "y": 13
+            },
+            "id": 3,
+            "options": {
+                "barRadius": 0.2,
+                "barWidth": 0.5,
+                "fullHighlight": false,
+                "groupWidth": 0.7,
+                "legend": {
+                    "calcs": [],
+                    "displayMode": "list",
+                    "placement": "bottom",
+                    "showLegend": false
+                },
+                "orientation": "horizontal",
+                "showValue": "auto",
+                "stacking": "none",
+                "tooltip": {
+                    "mode": "single",
+                    "sort": "none"
+                },
+                "xTickLabelRotation": 0,
+                "xTickLabelSpacing": 200
+            },
+            "pluginVersion": "11.3.1",
+            "targets": [
+                {
+                    "dataset": "bihw",
+                    "datasource": {
+                        "type": "mysql",
+                        "uid": "ae54y4zq8dipse"
+                    },
+                    "editorMode": "code",
+                    "format": "table",
+                    "rawQuery": true,
+                    "rawSql": "SELECT \n    p.name AS aircraft_name,\n    r.equipment AS aircraft_type,\n    COUNT(*) AS usage_count\nFROM \n    bihw.routes r\nJOIN \n    bihw.planes p\nON \n    r.equipment = p.iata_code\nWHERE \n    r.equipment IS NOT NULL\nGROUP BY \n    p.name, r.equipment\nORDER BY \n    usage_count DESC\nLIMIT 15;",
+                    "refId": "A",
+                    "sql": {
+                        "columns": [
+                            {
+                                "parameters": [],
+                                "type": "function"
+                            }
+                        ],
+                        "groupBy": [
+                            {
+                                "property": {
+                                    "type": "string"
+                                },
+                                "type": "groupBy"
+                            }
+                        ],
+                        "limit": 50
+                    }
+                }
+            ],
+            "title": "Most popular planes (top 15)",
+            "type": "barchart"
+        },
+        {
+            "datasource": {
+                "type": "mysql",
+                "uid": "ae54y4zq8dipse"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "palette-classic"
+                    },
+                    "custom": {
+                        "axisBorderShow": false,
+                        "axisCenteredZero": false,
+                        "axisColorMode": "text",
+                        "axisGridShow": true,
+                        "axisLabel": "Route count",
+                        "axisPlacement": "auto",
+                        "fillOpacity": 58,
+                        "gradientMode": "opacity",
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        },
+                        "lineWidth": 2,
+                        "scaleDistribution": {
+                            "type": "linear"
+                        },
+                        "thresholdsStyle": {
+                            "mode": "off"
+                        }
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 13,
+                "w": 12,
+                "x": 12,
+                "y": 13
+            },
+            "id": 2,
+            "options": {
+                "barRadius": 0.2,
+                "barWidth": 0.5,
+                "fullHighlight": false,
+                "groupWidth": 0.7,
+                "legend": {
+                    "calcs": [],
+                    "displayMode": "list",
+                    "placement": "bottom",
+                    "showLegend": false
+                },
+                "orientation": "horizontal",
+                "showValue": "auto",
+                "stacking": "none",
+                "tooltip": {
+                    "mode": "single",
+                    "sort": "none"
+                },
+                "xTickLabelRotation": 0,
+                "xTickLabelSpacing": 200
+            },
+            "pluginVersion": "11.3.1",
+            "targets": [
+                {
+                    "dataset": "bihw",
+                    "datasource": {
+                        "type": "mysql",
+                        "uid": "ae54y4zq8dipse"
+                    },
+                    "editorMode": "code",
+                    "format": "table",
+                    "rawQuery": true,
+                    "rawSql": "SELECT \n    a.name AS airport_name,\n    r.source_airport AS airport_id,\n    COUNT(*) AS flight_count\nFROM \n    bihw.routes r\nJOIN \n    bihw.airports a\nON \n    r.source_airport_id = a.id\nGROUP BY \n    r.source_airport, a.name\nORDER BY \n    flight_count DESC\nLIMIT 15;",
+                    "refId": "A",
+                    "sql": {
+                        "columns": [
+                            {
+                                "parameters": [],
+                                "type": "function"
+                            }
+                        ],
+                        "groupBy": [
+                            {
+                                "property": {
+                                    "type": "string"
+                                },
+                                "type": "groupBy"
+                            }
+                        ],
+                        "limit": 50
+                    }
+                }
+            ],
+            "title": "Most popular airports (top 15)",
+            "type": "barchart"
+        },
+        {
+            "datasource": {
+                "type": "mysql",
+                "uid": "ae54y4zq8dipse"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "thresholds"
+                    },
+                    "custom": {
+                        "align": "auto",
+                        "cellOptions": {
+                            "type": "auto",
+                            "wrapText": false
+                        },
+                        "inspect": false
+                    },
+                    "mappings": [],
+                    "thresholds": {
+                        "mode": "absolute",
+                        "steps": [
+                            {
+                                "color": "green",
+                                "value": null
+                            },
+                            {
+                                "color": "red",
+                                "value": 80
+                            }
+                        ]
+                    }
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 13,
+                "w": 12,
+                "x": 0,
+                "y": 26
+            },
+            "id": 4,
+            "options": {
+                "cellHeight": "sm",
+                "footer": {
+                    "countRows": false,
+                    "enablePagination": false,
+                    "fields": "",
+                    "reducer": [
+                        "sum"
+                    ],
+                    "show": false
+                },
+                "showHeader": true,
+                "sortBy": []
+            },
+            "pluginVersion": "11.3.1",
+            "targets": [
+                {
+                    "dataset": "bihw",
+                    "datasource": {
+                        "type": "mysql",
+                        "uid": "ae54y4zq8dipse"
+                    },
+                    "editorMode": "code",
+                    "format": "table",
+                    "rawQuery": true,
+                    "rawSql": "SELECT \n    sa.country AS \"Source country\",           -- Forrás ország\n    da.country AS \"Destination country\",      -- Cél ország\n    COUNT(*) AS \"Flight count\"                -- Járatok száma\nFROM \n    bihw.routes r\nJOIN \n    bihw.airports sa ON r.source_airport_id = sa.id  -- Forrás repülőtér összekapcsolása\nJOIN \n    bihw.airports da ON r.destination_airport_id = da.id  -- Cél repülőtér összekapcsolása\nGROUP BY \n    sa.country, da.country                  -- Csoportosítás forrás- és célország szerint\nORDER BY \n    3 DESC\nLIMIT 15;",
+                    "refId": "A",
+                    "sql": {
+                        "columns": [
+                            {
+                                "parameters": [],
+                                "type": "function"
+                            }
+                        ],
+                        "groupBy": [
+                            {
+                                "property": {
+                                    "type": "string"
+                                },
+                                "type": "groupBy"
+                            }
+                        ],
+                        "limit": 50
+                    }
+                }
+            ],
+            "title": "Most popular route sources and destinations (top 15)",
+            "type": "table"
+        },
+        {
+            "datasource": {
+                "type": "mysql",
+                "uid": "ae54y4zq8dipse"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "palette-classic"
+                    },
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        }
+                    },
+                    "mappings": []
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 13,
+                "w": 6,
+                "x": 12,
+                "y": 26
+            },
+            "id": 5,
+            "options": {
+                "displayLabels": [
+                    "name"
+                ],
+                "legend": {
+                    "displayMode": "table",
+                    "placement": "right",
+                    "showLegend": true,
+                    "values": [
+                        "value",
+                        "percent"
+                    ]
+                },
+                "pieType": "pie",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": true
+                },
+                "tooltip": {
+                    "mode": "single",
+                    "sort": "none"
+                }
+            },
+            "pluginVersion": "11.3.1",
+            "targets": [
+                {
+                    "dataset": "bihw",
+                    "datasource": {
+                        "type": "mysql",
+                        "uid": "ae54y4zq8dipse"
+                    },
+                    "editorMode": "code",
+                    "format": "table",
+                    "rawQuery": true,
+                    "rawSql": "SELECT \n\tSUBSTRING_INDEX(p.name , ' ', 1) AS Brand,\n\tcount(*) AS \"Count\"\nFROM planes p \nGROUP BY Brand\nORDER by 2 DESC",
+                    "refId": "A",
+                    "sql": {
+                        "columns": [
+                            {
+                                "parameters": [],
+                                "type": "function"
+                            }
+                        ],
+                        "groupBy": [
+                            {
+                                "property": {
+                                    "type": "string"
+                                },
+                                "type": "groupBy"
+                            }
+                        ],
+                        "limit": 50
+                    }
+                }
+            ],
+            "title": "Distribution of plane brands",
+            "type": "piechart"
+        },
+        {
+            "datasource": {
+                "type": "mysql",
+                "uid": "ae54y4zq8dipse"
+            },
+            "fieldConfig": {
+                "defaults": {
+                    "color": {
+                        "mode": "palette-classic"
+                    },
+                    "custom": {
+                        "hideFrom": {
+                            "legend": false,
+                            "tooltip": false,
+                            "viz": false
+                        }
+                    },
+                    "mappings": [
+                        {
+                            "options": {
+                                "N": {
+                                    "color": "red",
+                                    "index": 1,
+                                    "text": "Inactive"
+                                },
+                                "Y": {
+                                    "color": "green",
+                                    "index": 0,
+                                    "text": "Active"
+                                }
+                            },
+                            "type": "value"
+                        }
+                    ]
+                },
+                "overrides": []
+            },
+            "gridPos": {
+                "h": 13,
+                "w": 6,
+                "x": 18,
+                "y": 26
+            },
+            "id": 6,
+            "options": {
+                "displayLabels": [
+                    "name"
+                ],
+                "legend": {
+                    "displayMode": "table",
+                    "placement": "right",
+                    "showLegend": true,
+                    "values": [
+                        "value",
+                        "percent"
+                    ]
+                },
+                "pieType": "pie",
+                "reduceOptions": {
+                    "calcs": [
+                        "lastNotNull"
+                    ],
+                    "fields": "",
+                    "values": true
+                },
+                "tooltip": {
+                    "mode": "single",
+                    "sort": "none"
+                }
+            },
+            "pluginVersion": "11.3.1",
+            "targets": [
+                {
+                    "dataset": "bihw",
+                    "datasource": {
+                        "type": "mysql",
+                        "uid": "ae54y4zq8dipse"
+                    },
+                    "editorMode": "code",
+                    "format": "table",
+                    "rawQuery": true,
+                    "rawSql": "SELECT\n\ta.active AS \"Status\",\n\tcount(*)\nFROM airlines a\nGROUP BY a.active",
+                    "refId": "A",
+                    "sql": {
+                        "columns": [
+                            {
+                                "parameters": [],
+                                "type": "function"
+                            }
+                        ],
+                        "groupBy": [
+                            {
+                                "property": {
+                                    "type": "string"
+                                },
+                                "type": "groupBy"
+                            }
+                        ],
+                        "limit": 50
+                    }
+                }
+            ],
+            "title": "Distribution of plane brands",
+            "type": "piechart"
+        }
+    ],
+    "preload": false,
+    "schemaVersion": 40,
+    "tags": [],
+    "templating": {
+        "list": [
+            {
+                "current": {
+                    "text": "50",
+                    "value": "50"
+                },
+                "label": "Airport count",
+                "name": "airport_count",
+                "options": [
+                    {
+                        "selected": false,
+                        "text": "10",
+                        "value": "10"
+                    },
+                    {
+                        "selected": true,
+                        "text": "50",
+                        "value": "50"
+                    },
+                    {
+                        "selected": false,
+                        "text": "100",
+                        "value": "100"
+                    },
+                    {
+                        "selected": false,
+                        "text": "250",
+                        "value": "250"
+                    },
+                    {
+                        "selected": false,
+                        "text": "500",
+                        "value": "500"
+                    },
+                    {
+                        "selected": false,
+                        "text": "1000",
+                        "value": "1000"
+                    },
+                    {
+                        "selected": false,
+                        "text": "1500",
+                        "value": "1500"
+                    },
+                    {
+                        "selected": false,
+                        "text": "2000",
+                        "value": "2000"
+                    },
+                    {
+                        "selected": false,
+                        "text": "2500",
+                        "value": "2500"
+                    },
+                    {
+                        "selected": false,
+                        "text": "5000",
+                        "value": "5000"
+                    },
+                    {
+                        "selected": false,
+                        "text": "7700",
+                        "value": "7700"
+                    }
+                ],
+                "query": "10,50,100,250,500,1000,1500,2000,2500,5000,7700",
+                "type": "custom"
+            }
+        ]
+    },
+    "time": {
+        "from": "now-6h",
+        "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "browser",
+    "title": "Airports",
+    "uid": "ae54y9508fbi8d",
+    "version": 18,
+    "weekStart": ""
+}
