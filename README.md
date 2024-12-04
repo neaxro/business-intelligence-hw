@@ -1,5 +1,9 @@
 # business-intelligence-hw
 
+## Tartalom
+
+[TOC]
+
 ## Infrastruktúra
 
 A projekt minden komponense egy docker compose file-ban van leírva, melyet egyszerűen el lehet indítani az alábbi paranccsal:
